@@ -1,11 +1,44 @@
 import { Outlet } from "react-router";
 import "./App.css";
+import Navbar from "./components/navFooter/Navbar";
+import Footer from "./components/navFooter/Footer";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <>
-      Jhinku React is a React Boilerplate
-      <Outlet />
+      <>
+        <div className="min-h-screen flex flex-col bg-[#F2F9FF]">
+          {/* Navbar and main content */}
+          <div className="flex-grow">
+            <div className="mb-5">
+              <Navbar />
+            </div>
+
+            {/* Main Content */}
+            <div className="mb-20">
+              <Outlet />
+            </div>
+          </div>
+
+          {/* Footer */}
+
+          <Footer />
+        </div>
+
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </>
     </>
   );
 }
