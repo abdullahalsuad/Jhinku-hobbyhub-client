@@ -11,8 +11,9 @@ function App() {
         <div className="min-h-screen flex flex-col bg-[#F2F9FF]">
           {/* Navbar and main content */}
           <div className="flex-grow">
-            <div className="mb-5">
+            <div className="">
               <Navbar />
+              <hr className="text-gray-700" />
             </div>
 
             {/* Main Content */}

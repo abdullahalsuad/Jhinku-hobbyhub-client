@@ -31,7 +31,6 @@ const RegistrationForm = ({
                 id="name"
                 type="text"
                 name="name"
-                required
                 placeholder="Jhinku Suad"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
@@ -49,7 +48,6 @@ const RegistrationForm = ({
                 id="email"
                 type="email"
                 name="email"
-                required
                 placeholder="jhinku@example.com"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
@@ -67,7 +65,6 @@ const RegistrationForm = ({
                 id="photoURL"
                 type="url"
                 name="photoURL"
-                required
                 placeholder="https://example.com/photo.jpg "
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
@@ -86,7 +83,6 @@ const RegistrationForm = ({
                   id="password"
                   type={showPassword ? "text" : "password"}
                   name="password"
-                  required
                   placeholder="••••••••"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
                 />

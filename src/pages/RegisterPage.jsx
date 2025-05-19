@@ -30,6 +30,7 @@ const RegisterPage = () => {
 
     // Input validation
     if (!name || !email || !password || !photoURL) {
+      toast.warning("Please fill all fields and accept terms.");
       setError("Please fill all fields and accept terms.");
       setIsLoading(false);
       return;
@@ -38,6 +39,7 @@ const RegisterPage = () => {
     // Email and password format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
+      toast.warning("Please enter a valid email address.");
       setError("Please enter a valid email address.");
       setIsLoading(false);
       return;
@@ -50,21 +52,21 @@ const RegisterPage = () => {
     // Validate password
     if (password.length < 6) {
       setError("Password must be at least 6 characters.");
-      toast.error("Password must be at least 6 characters.");
+      toast.warning("Password must be at least 6 characters.");
       setIsLoading(false);
       return;
     }
 
     if (!hasLower) {
       setError("Password must contain at least one lowercase letter.");
-      toast.error("Password must contain at least one lowercase letter.");
+      toast.warning("Password must contain at least one lowercase letter.");
       setIsLoading(false);
       return;
     }
 
     if (!hasUpper) {
       setError("Password must contain at least one uppercase letter.");
-      toast.error("Password must contain at least one uppercase letter.");
+      toast.warning("Password must contain at least one uppercase letter.");
       setIsLoading(false);
       return;
     }

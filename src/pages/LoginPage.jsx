@@ -24,6 +24,7 @@ const LoginPage = () => {
 
     // Input validation
     if (!email || !password) {
+      toast.warning("Please fill all fields.");
       setError("Please fill all fields.");
       setIsLoading(false);
       return;
