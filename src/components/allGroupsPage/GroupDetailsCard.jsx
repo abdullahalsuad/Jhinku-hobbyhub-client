@@ -24,48 +24,50 @@ const GroupDetailsCard = () => {
 
         {/* Content */}
         <div className="p-6">
-          <div className="flex flex-wrap gap-2 mb-4">
-            <span className="bg-[#00224D] text-white text-xs px-3 py-1 rounded-full">
+          <div className="flex flex-wrap items-center gap-2 mb-10">
+            <span className="bg-[#00224D] text-white text-[14px] px-3 py-2 rounded-full">
               Drawing & Painting
             </span>
-            <span className="bg-[#1f5490] text-white text-xs px-3 py-1 rounded-full">
+            <span className="bg-[#1f5490] text-white text-[14px] px-3 py-2 rounded-full">
               15 Members
             </span>
-            <span className="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">
+            <span className="bg-[#003479] text-white text-[14px] px-3 py-2 rounded-full">
               Location: Central Park
             </span>
           </div>
 
-          <p className="text-gray-700 mb-6">
+          <p className="text-gray-700 mb-6  text-xl mt-4">
             We meet every weekend at sunset to sketch the city skyline. All
             skill levels welcome! Bring your own materials or borrow some from
             the group kit.
           </p>
 
           <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">
               Upcoming Event
             </h3>
-            <p className="text-gray-600">
-              <MdOutlineDateRange /> Saturday, April 10th @ 5:00 PM
+            <p className="text-gray-600 flex items-center gap-3 mb-2 text-[17px]">
+              <MdOutlineDateRange size={20} color="#00224D" /> Saturday, April
+              10th @ 5:00 PM
             </p>
-            <p className="text-gray-600">
-              <MdOutlinePushPin /> Central Park East Meadow
+            <p className="text-gray-600 flex items-center gap-3 text-[17px]">
+              <MdOutlinePushPin size={20} color="#00224D" /> Central Park East
+              Meadow
             </p>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 my-8">
             <Link to="/create-group">
-              <button className="bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D] cursor-pointer hover:-translate-y-1 hover:shadow-lg  transform ease-in-out text-white py-2 px-6 rounded-md transition-all duration-300">
-                Join Group <FaHandshake />
+              <button className="bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D] cursor-pointer hover:-translate-y-1 hover:shadow-lg  transform ease-in-out text-white py-3 px-6 rounded-md transition-all duration-300 flex items-center gap-2 ">
+                Join Group <FaHandshake size={20} />
               </button>
             </Link>
 
             <Link
               to="/groups"
-              className=" bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D] cursor-pointer hover:-translate-y-1 hover:shadow-lg  transform ease-in-out text-white py-2 px-6 rounded-md transition-all duration-300"
+              className="py-3 bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D] cursor-pointer hover:-translate-y-1 hover:shadow-lg  transform ease-in-out text-white  px-6 rounded-md transition-all duration-300 flex items-center gap-2"
             >
-              <IoIosArrowBack />
+              <IoIosArrowBack size={20} />
               Back to Groups
             </Link>
           </div>

@@ -7,6 +7,8 @@ import AllGroupsPage from "../pages/AllGroupsPage";
 import MyGroupsPage from "../pages/MyGroupsPage";
 import CreateGroup from "../pages/CreateGroup";
 import GroupDetailsPage from "../pages/GroupDetailsPage";
+import PrivateRoute from "./PrivateRoute";
+import UpdateGroupPage from "../pages/UpdateGroupPage";
 
 const router = createBrowserRouter([
   {
@@ -25,15 +27,35 @@ const router = createBrowserRouter([
       },
       {
         path: "/groups/:id",
-        element: <GroupDetailsPage />,
+        element: (
+          <PrivateRoute>
+            <GroupDetailsPage />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/create-group",
-        element: <CreateGroup />,
+        element: (
+          <PrivateRoute>
+            <CreateGroup />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-groups",
-        element: <MyGroupsPage />,
+        element: (
+          <PrivateRoute>
+            <MyGroupsPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateGroupPage />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

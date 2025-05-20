@@ -42,7 +42,7 @@ const LoginPage = () => {
     try {
       await logIn(email, password);
       e.target.reset();
-      toast.success("✅ Login successful. Welcome back!");
+      toast.success("Login successful. Welcome back!");
       navigate(location?.state ? location.state : "/");
     } catch (error) {
       // Map Firebase error codes to user-friendly messages

@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import UpdateGroupForm from "../components/updateGroupPage/UpdateGroupForm";
 
 const UpdateGroupPage = () => {
   return (
-    <div>UpdateGroupPage</div>
-  )
-}
+    <>
+      <UpdateGroupForm />
+    </>
+  );
+};
 
-export default UpdateGroupPage
+export default UpdateGroupPage;

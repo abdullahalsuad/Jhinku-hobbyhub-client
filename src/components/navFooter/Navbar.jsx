@@ -98,7 +98,7 @@ const Navbar = () => {
 
                 <button
                   onClick={handleSignOut}
-                  className="flex items-center gap-2 text-[#C68EFD] hover:text-red-500"
+                  className="flex items-center gap-2 text-[#C68EFD] hover:text-red-500 cursor-pointer"
                 >
                   Logout <IoIosLogOut size={25} />
                 </button>
@@ -120,7 +120,7 @@ const Navbar = () => {
             <div className="flex md:hidden ml-4">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white focus:outline-none"
+                className="text-white focus:outline-none cursor-pointer"
               >
                 <svg
                   className="h-6 w-6"
@@ -209,7 +209,7 @@ const Navbar = () => {
                 />
                 <button
                   onClick={handleSignOut}
-                  className="flex items-center gap-2 text-[#1f5490] hover:text-red-500 w-full text-left"
+                  className="flex items-center gap-2 text-[#1f5490] hover:text-red-500 w-full text-left cursor-pointer"
                 >
                   Logout <IoIosLogOut size={25} />
                 </button>
