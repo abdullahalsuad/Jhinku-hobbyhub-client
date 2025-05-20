@@ -9,10 +9,11 @@ const FetchDataProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   // Fetch all hobby groups items
+
   useEffect(() => {
     const fetchHobbyGroupsData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/hobby-groups");
+        const response = await fetch("http://localhost:3000/api/groups");
         const data = await response.json();
         setHobbyGroups(data);
         setLoading(false);
