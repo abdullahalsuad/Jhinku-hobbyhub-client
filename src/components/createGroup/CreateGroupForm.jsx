@@ -1,6 +1,6 @@
 import React from "react";
 
-const CreateGroupForm = () => {
+const CreateGroupForm = ({ handleCreateHobbyGroup, displayName, email }) => {
   return (
     <>
       <div className="  py-12 px-4 flex items-center justify-center ">
@@ -9,7 +9,7 @@ const CreateGroupForm = () => {
             Create a New Hobby Group
           </h2>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleCreateHobbyGroup}>
             {/* Group Name */}
             <div>
               <label className="block text-gray-700 font-medium mb-2">
@@ -17,6 +17,8 @@ const CreateGroupForm = () => {
               </label>
               <input
                 type="text"
+                name="groupName"
+                required
                 placeholder="e.g. Sunset Sketchers"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
@@ -27,7 +29,11 @@ const CreateGroupForm = () => {
               <label className="block text-gray-700 font-medium mb-2">
                 Hobby Category
               </label>
-              <select className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#C68EFD]">
+              <select
+                required
+                name="category"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
+              >
                 <option value="">Select a category</option>
                 <option value="drawing">Drawing & Painting</option>
                 <option value="photography">Photography</option>
@@ -46,7 +52,9 @@ const CreateGroupForm = () => {
                 Description
               </label>
               <textarea
+                required
                 rows="4"
+                name="description"
                 placeholder="Describe what your group is about..."
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               ></textarea>
@@ -58,7 +66,9 @@ const CreateGroupForm = () => {
                 Meeting Location
               </label>
               <input
+                required
                 type="text"
+                name="meetingLocation"
                 placeholder="e.g. Central Park, NYC or Zoom link"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
@@ -70,9 +80,11 @@ const CreateGroupForm = () => {
                 Max Members
               </label>
               <input
+                required
                 type="number"
                 min="2"
                 max="100"
+                name="membersNumber"
                 placeholder="e.g. 15"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
@@ -84,7 +96,9 @@ const CreateGroupForm = () => {
                 Start Date / Deadline
               </label>
               <input
+                required
                 type="date"
+                name="startDate"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
             </div>
@@ -95,7 +109,9 @@ const CreateGroupForm = () => {
                 Image URL
               </label>
               <input
+                required
                 type="url"
+                name="groupImg"
                 placeholder="https://example.com/image.jpg "
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
@@ -108,9 +124,12 @@ const CreateGroupForm = () => {
                   User Name
                 </label>
                 <input
-                  placeholder="jhinku"
+                  required
+                  defaultValue={displayName}
                   type="text"
-                  className="w-full px-4 py-3   border border-gray-300 rounded-lg focus:ring-[#C68EFD]"
+                  name="userName"
+                  readOnly
+                  className="w-full px-4 py-3  bg-gray-300  border border-gray-300 rounded-lg  cursor-not-allowed"
                 />
               </div>
               <div>
@@ -118,9 +137,11 @@ const CreateGroupForm = () => {
                   Email
                 </label>
                 <input
-                  placeholder="jhinku@gmainl.com"
+                  defaultValue={email}
                   type="email"
-                  className="w-full px-4 py-3   border border-gray-300 rounded-lg focus:ring-[#C68EFD]"
+                  name="userEmail"
+                  readOnly
+                  className="w-full px-4 py-3   border border-gray-300 rounded-lg bg-gray-300 cursor-not-allowed"
                 />
               </div>
             </div>
