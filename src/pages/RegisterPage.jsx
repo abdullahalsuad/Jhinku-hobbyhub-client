@@ -99,6 +99,7 @@ const RegisterPage = () => {
       };
 
       const message = errorMessages[error.code] || errorMessages.default;
+      setError(message);
       toast.error(message);
     } finally {
       setIsLoading(false);

@@ -50,11 +50,11 @@ const LoginPage = () => {
         "auth/invalid-email": "Please enter a valid email address.",
         "auth/user-not-found": "No account found with this email.",
         "auth/wrong-password": "Incorrect password. Please try again.",
-        default: error.message,
+        default: "An unexpected error occurred. Please try again.",
       };
-      const errorMessage = errorMessages[error.code] || errorMessages.default;
-      setError(errorMessage);
-      toast.error(errorMessage);
+      const message = errorMessages[error.code] || errorMessages.default;
+      setError(message);
+      toast.error(message);
     } finally {
       setIsLoading(false);
     }
