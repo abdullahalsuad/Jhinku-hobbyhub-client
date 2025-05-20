@@ -1,5 +1,3 @@
-import React from "react";
-
 const CreateGroupForm = ({ handleCreateHobbyGroup, displayName, email }) => {
   return (
     <>

@@ -2,9 +2,11 @@ import { use } from "react";
 import CreateGroupForm from "../components/createGroup/CreateGroupForm";
 import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
+import { FetchDataContext } from "../context/FetchDataProvider";
 
 const CreateGroup = () => {
   const { user } = use(AuthContext);
+  const { setHobbyGroups } = use(FetchDataContext);
 
   // Fetching username and email from Firebase
   const displayName = user?.displayName;
@@ -18,8 +20,6 @@ const CreateGroup = () => {
     const form = e.target;
     const formData = new FormData(form);
     const newHobbyGroupData = Object.fromEntries(formData.entries());
-
-    console.log(newHobbyGroupData);
 
     // Make an API request to send data to the backend
     try {
@@ -40,7 +40,10 @@ const CreateGroup = () => {
         // console.log("hobby group added:", createHobbyGroup);
         toast.success("hobby group added successfully!");
 
-        //ui update
+        // UI update
+        newHobbyGroupData._id = createHobbyGroup.insertedId;
+
+        setHobbyGroups((prev) => [...prev, newHobbyGroupData]);
         e.target.reset();
       }
     } catch (error) {

@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/navFooter/Navbar";
 import Footer from "./components/navFooter/Footer";
 import { ToastContainer } from "react-toastify";
+import FetchDataProvider from "./context/FetchDataProvider";
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
 
             {/* Main Content */}
             <div className="mb-20">
-              <Outlet />
+              <FetchDataProvider>
+                <Outlet />
+              </FetchDataProvider>
             </div>
           </div>
 
