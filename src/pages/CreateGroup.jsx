@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router";
+import CreateGroupForm from "../components/createGroup/CreateGroupForm";
 
 const CreateGroup = () => {
   return (
-    <div>CreateGroup</div>
-  )
-}
+    <>
+      {/* UI */}
+      <CreateGroupForm />
+    </>
+  );
+};
 
-export default CreateGroup
+export default CreateGroup;
