@@ -12,6 +12,7 @@ const UpdateGroupPage = () => {
   const { id } = useParams();
 
   const targetedHobbyGroup = myHobbyGroups.find((group) => group._id === id);
+  const remainingHobbyGroup = myHobbyGroups.filter((group) => group._id !== id);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -19,7 +20,6 @@ const UpdateGroupPage = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updatedHobbyGroups = Object.fromEntries(formData.entries());
-    console.log(updatedHobbyGroups);
 
     try {
       const response = await fetch(
@@ -40,15 +40,17 @@ const UpdateGroupPage = () => {
       const modifiedHobbyGroups = await response.json();
       if (modifiedHobbyGroups.modifiedCount) {
         console.log("Hobby groups:", modifiedHobbyGroups);
-        toast.success("Hobby groups successfully!");
+        toast.success("Hobby groups update successfully!");
 
-        setMyHobbyGroups((prev) => [...prev, modifiedHobbyGroups]);
+        setMyHobbyGroups([...remainingHobbyGroup, updatedHobbyGroups]);
         navigate("/my-groups");
       }
     } catch (error) {
       console.log("error from sending data to the server", error);
     }
   };
+
+  console.log(myHobbyGroups.length);
 
   return (
     <>
