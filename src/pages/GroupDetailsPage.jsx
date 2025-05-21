@@ -23,6 +23,7 @@ const GroupDetailsPage = () => {
     fetchSingleHobbyGroupData();
   }, [id]);
 
+  // handling join group
   const handlingJoinGroup = (createdDate) => {
     // Convert input string (YYYY-MM-DD) into a Date object
     const [year, month, day] = createdDate.split("-");
