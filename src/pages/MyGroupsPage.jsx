@@ -1,31 +1,12 @@
-import { use, useEffect, useState } from "react";
+import { use } from "react";
 import MyGroupsTable from "../components/myGroupspage/MyGroupspage";
-import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { FetchDataContext } from "../context/FetchDataProvider";
 
 const MyGroupsPage = () => {
-  const [myHobbyGroups, setMyHobbyGroups] = useState([]);
-  const { user } = use(AuthContext);
+  const { myHobbyGroups, setMyHobbyGroups } = use(FetchDataContext);
   const { setHobbyGroups } = use(FetchDataContext);
-
-  // Fetch single hobby groups items
-  useEffect(() => {
-    const fetchSingleHobbyGroupData = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:3000/api/groups/user/${user?.email}`
-        );
-        const data = await response.json();
-        setMyHobbyGroups(data);
-      } catch (error) {
-        console.log("Failed to fetch all hobby groups data", error);
-      }
-    };
-
-    fetchSingleHobbyGroupData();
-  }, [user?.email]);
 
   // handle delete
   const handleDelete = async (id) => {

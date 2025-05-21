@@ -1,15 +1,19 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useEffect, useState } from "react";
+import { createContext, use, useEffect, useState } from "react";
+import { AuthContext } from "./AuthProvider";
 
 // Creating a context
 export const FetchDataContext = createContext(null);
 
 const FetchDataProvider = ({ children }) => {
+  // state
   const [hobbyGroups, setHobbyGroups] = useState([]);
+  const [myHobbyGroups, setMyHobbyGroups] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch all hobby groups items
+  const { user } = use(AuthContext);
 
+  // Fetch all hobby groups items
   useEffect(() => {
     const fetchHobbyGroupsData = async () => {
       try {
@@ -25,8 +29,31 @@ const FetchDataProvider = ({ children }) => {
     fetchHobbyGroupsData();
   }, []);
 
+  // Fetch single hobby groups items
+  useEffect(() => {
+    const fetchSingleHobbyGroupData = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/api/groups/user/${user?.email}`
+        );
+        const data = await response.json();
+        setMyHobbyGroups(data);
+      } catch (error) {
+        console.log("Failed to fetch all hobby groups data", error);
+      }
+    };
+
+    fetchSingleHobbyGroupData();
+  }, [user?.email]);
+
   // value
-  const value = { hobbyGroups, setHobbyGroups, loading };
+  const value = {
+    hobbyGroups,
+    setHobbyGroups,
+    loading,
+    myHobbyGroups,
+    setMyHobbyGroups,
+  };
 
   return <FetchDataContext value={value}>{children}</FetchDataContext>;
 };
