@@ -17,7 +17,9 @@ const FetchDataProvider = ({ children }) => {
   useEffect(() => {
     const fetchHobbyGroupsData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/groups");
+        const response = await fetch(
+          "https://jhinku-hobbyhub-server.vercel.app/api/groups"
+        );
         const data = await response.json();
         setHobbyGroups(data);
         setLoading(false);
@@ -34,7 +36,7 @@ const FetchDataProvider = ({ children }) => {
     const fetchSingleHobbyGroupData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/groups/user/${user?.email}`
+          `https://jhinku-hobbyhub-server.vercel.app/api/groups/user/${user?.email}`
         );
         const data = await response.json();
         setMyHobbyGroups(data);

@@ -23,7 +23,7 @@ const MyGroupsPage = () => {
       if (result.isConfirmed) {
         try {
           const response = await fetch(
-            `http://localhost:3000/api/groups/${id}`,
+            `https://jhinku-hobbyhub-server.vercel.app/api/groups/${id}`,
             {
               method: "DELETE",
               headers: {

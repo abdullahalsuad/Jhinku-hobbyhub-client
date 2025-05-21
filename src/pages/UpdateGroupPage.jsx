@@ -22,13 +22,16 @@ const UpdateGroupPage = () => {
     console.log(updatedHobbyGroups);
 
     try {
-      const response = await fetch(`http://localhost:3000/api/groups/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedHobbyGroups),
-      });
+      const response = await fetch(
+        `https://jhinku-hobbyhub-server.vercel.app/api/groups/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedHobbyGroups),
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`Server responded with status: ${response.status}`);

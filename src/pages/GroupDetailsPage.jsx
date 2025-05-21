@@ -12,7 +12,9 @@ const GroupDetailsPage = () => {
   useEffect(() => {
     const fetchSingleHobbyGroupData = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/groups/${id}`);
+        const response = await fetch(
+          `https://jhinku-hobbyhub-server.vercel.app/api/groups/${id}`
+        );
         const data = await response.json();
         setSingleHobbyGroup(data);
       } catch (error) {

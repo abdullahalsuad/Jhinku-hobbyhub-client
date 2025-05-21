@@ -23,13 +23,16 @@ const CreateGroup = () => {
 
     // Make an API request to send data to the backend
     try {
-      const response = await fetch("http://localhost:3000/api/groups", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newHobbyGroupData),
-      });
+      const response = await fetch(
+        "https://jhinku-hobbyhub-server.vercel.app/api/groups",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newHobbyGroupData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`Server responded with status: ${response.status}`);
