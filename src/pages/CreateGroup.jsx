@@ -6,7 +6,7 @@ import { FetchDataContext } from "../context/FetchDataProvider";
 
 const CreateGroup = () => {
   const { user } = use(AuthContext);
-  const { setHobbyGroups } = use(FetchDataContext);
+  const { setHobbyGroups, setMyHobbyGroups } = use(FetchDataContext);
 
   // Fetching username and email from Firebase
   const displayName = user?.displayName;
@@ -47,6 +47,7 @@ const CreateGroup = () => {
         newHobbyGroupData._id = createHobbyGroup.insertedId;
 
         setHobbyGroups((prev) => [...prev, newHobbyGroupData]);
+        setMyHobbyGroups((prev) => [...prev, newHobbyGroupData]);
         e.target.reset();
       }
     } catch (error) {

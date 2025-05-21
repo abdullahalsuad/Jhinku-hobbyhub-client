@@ -1,5 +1,5 @@
 import { use } from "react";
-import MyGroupsTable from "../components/myGroupspage/MyGroupspage";
+import MyGroupsTable from "../components/myGroupspage/MyGroupsTable";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { FetchDataContext } from "../context/FetchDataProvider";

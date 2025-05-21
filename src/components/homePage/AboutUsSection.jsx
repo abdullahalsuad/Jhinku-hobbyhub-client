@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import { Typewriter } from "react-simple-typewriter";
 
 const AboutUsSection = () => {
   return (
@@ -17,7 +18,15 @@ const AboutUsSection = () => {
         {/* Content */}
         <div className="md:w-1/2 md:pl-12">
           <h2 className="text-3xl font-bold text-[#00224D] mb-4">
-            About Jhinku Hobby Hub
+            <Typewriter
+              words={["About Jhinku Hobby Hub"]}
+              loop={true} // or true for infinite
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
           </h2>
           <p className="text-gray-700 mb-6 text-xl">
             Jhinku Hobby Hub was created to help people find joy in shared

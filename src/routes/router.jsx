@@ -9,11 +9,13 @@ import CreateGroup from "../pages/CreateGroup";
 import GroupDetailsPage from "../pages/GroupDetailsPage";
 import PrivateRoute from "./PrivateRoute";
 import UpdateGroupPage from "../pages/UpdateGroupPage";
+import NotFoundPage from "../pages/NotFoundPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFoundPage />,
 
     children: [
       {
@@ -64,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <RegisterPage />,
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />,
       },
     ],
   },
