@@ -87,12 +87,11 @@ const Navbar = () => {
             {user ? (
               <div className="lg:flex items-center space-x-4 hidden">
                 {/* Profile Image */}
-                <div className="relative group inline-block">
+                <div className=" group py-4 ">
                   <img
                     src={user?.photoURL}
                     alt={user?.displayName}
-                    className="h-8 w-8 rounded-full object-cover cursor-pointer border border-[#C68EFD]"
-                    onClick={() => navigate("/account/my-profile")}
+                    className="h-14 w-14 rounded-full object-cover cursor-pointer border border-[#C68EFD]"
                   />
                 </div>
 

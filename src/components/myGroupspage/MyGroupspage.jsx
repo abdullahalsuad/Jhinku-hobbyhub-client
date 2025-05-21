@@ -22,7 +22,7 @@ const MyGroupsTable = ({ myGroups }) => {
                   Location
                 </th>
                 <th className="px-6 py-3 text-[17px] font-bold text-center text-gray-700">
-                  Created
+                  Start Date
                 </th>
                 <th className="px-6 py-3 text-[17px] font-bold text-center text-gray-700 ">
                   Actions
@@ -31,7 +31,7 @@ const MyGroupsTable = ({ myGroups }) => {
             </thead>
             <tbody className="divide-y divide-gray-200">
               {myGroups.map((group) => (
-                <MyGroupsPagesTableRow group={group} />
+                <MyGroupsPagesTableRow group={group} key={group._id} />
               ))}
             </tbody>
           </table>
