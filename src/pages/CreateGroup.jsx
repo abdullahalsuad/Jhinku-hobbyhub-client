@@ -23,7 +23,7 @@ const CreateGroup = () => {
 
     // Make an API request to send data to the backend
     try {
-      const response = await fetch("http://localhost:3000/api/hobby-groups", {
+      const response = await fetch("http://localhost:3000/api/groups", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

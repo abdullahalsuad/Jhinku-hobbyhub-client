@@ -1,7 +1,7 @@
 import React from "react";
 import MyGroupsPagesTableRow from "./MyGroupsPagesTableRow";
 
-const MyGroupsTable = ({ myGroups }) => {
+const MyGroupsTable = ({ myGroups, handleDelete }) => {
   return (
     <>
       <div className="bg-white shadow-lg rounded-lg border border-gray-300 overflow-hidden">
@@ -31,7 +31,11 @@ const MyGroupsTable = ({ myGroups }) => {
             </thead>
             <tbody className="divide-y divide-gray-200">
               {myGroups.map((group) => (
-                <MyGroupsPagesTableRow group={group} key={group._id} />
+                <MyGroupsPagesTableRow
+                  group={group}
+                  key={group._id}
+                  handleDelete={handleDelete}
+                />
               ))}
             </tbody>
           </table>

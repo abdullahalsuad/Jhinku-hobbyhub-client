@@ -1,10 +1,9 @@
-import React from "react";
 import { LuTrash } from "react-icons/lu";
 import { TbEdit } from "react-icons/tb";
 
 import { Tooltip } from "react-tooltip";
 
-const MyGroupsPagesTableRow = ({ group }) => {
+const MyGroupsPagesTableRow = ({ group, handleDelete }) => {
   return (
     <tr key={group._id} className=" transition">
       <td className="px-6 py-4 text-black text-center text-[17px] ">
@@ -31,6 +30,7 @@ const MyGroupsPagesTableRow = ({ group }) => {
           <TbEdit size={25} />
         </button>
         <button
+          onClick={() => handleDelete(group._id)}
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Delete"
           className="bg-red-500 hover:bg-red-600 text-white text-sm px-4 py-2 rounded transition cursor-pointer"
