@@ -50,7 +50,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/update/:id",
+        path: "my-groups/update/:id",
         element: (
           <PrivateRoute>
             <UpdateGroupPage />

@@ -47,7 +47,7 @@ const MyGroupsPage = () => {
     });
   };
 
-  console.log(myHobbyGroups);
+  // console.log(myHobbyGroups);
 
   return (
     <>

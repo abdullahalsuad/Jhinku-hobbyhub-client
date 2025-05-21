@@ -1,6 +1,6 @@
 import { LuTrash } from "react-icons/lu";
 import { TbEdit } from "react-icons/tb";
-
+import { Link } from "react-router";
 import { Tooltip } from "react-tooltip";
 
 const MyGroupsPagesTableRow = ({ group, handleDelete }) => {
@@ -22,13 +22,15 @@ const MyGroupsPagesTableRow = ({ group, handleDelete }) => {
         {group.startDate}
       </td>
       <td className="px-6 py-4 flex justify-end gap-2">
-        <button
-          data-tooltip-id="my-tooltip"
-          data-tooltip-content="Update"
-          className="bg-[#C68EFD] hover:bg-[#b07bec] text-white text-sm px-4 py-2 rounded transition cursor-pointer"
-        >
-          <TbEdit size={25} />
-        </button>
+        <Link to={`/my-groups/update/${group._id}`}>
+          <button
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Update"
+            className="bg-[#C68EFD] hover:bg-[#b07bec] text-white text-sm px-4 py-2 rounded transition cursor-pointer"
+          >
+            <TbEdit size={25} />
+          </button>
+        </Link>
         <button
           onClick={() => handleDelete(group._id)}
           data-tooltip-id="my-tooltip"

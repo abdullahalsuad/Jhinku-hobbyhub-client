@@ -1,4 +1,4 @@
-const UpdateGroupForm = () => {
+const UpdateGroupForm = ({ user, targetedHobbyGroup, handleUpdate }) => {
   return (
     <>
       <div className="  py-12 px-4 flex items-center justify-center ">
@@ -7,7 +7,7 @@ const UpdateGroupForm = () => {
             Create a New Hobby Group
           </h2>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleUpdate}>
             {/* Group Name */}
             <div>
               <label className="block text-gray-700 font-medium mb-2">
@@ -15,7 +15,8 @@ const UpdateGroupForm = () => {
               </label>
               <input
                 type="text"
-                placeholder="e.g. Sunset Sketchers"
+                name="groupName"
+                defaultValue={targetedHobbyGroup?.groupName}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
             </div>
@@ -25,8 +26,13 @@ const UpdateGroupForm = () => {
               <label className="block text-gray-700 font-medium mb-2">
                 Hobby Category
               </label>
-              <select className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#C68EFD]">
-                <option value="">Select a category</option>
+              <select
+                name="category"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
+              >
+                <option value={targetedHobbyGroup?.category}>
+                  {targetedHobbyGroup?.category}
+                </option>
                 <option value="drawing">Drawing & Painting</option>
                 <option value="photography">Photography</option>
                 <option value="gaming">Video Gaming</option>
@@ -45,7 +51,8 @@ const UpdateGroupForm = () => {
               </label>
               <textarea
                 rows="4"
-                placeholder="Describe what your group is about..."
+                name="description"
+                defaultValue={targetedHobbyGroup?.description}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               ></textarea>
             </div>
@@ -57,7 +64,8 @@ const UpdateGroupForm = () => {
               </label>
               <input
                 type="text"
-                placeholder="e.g. Central Park, NYC or Zoom link"
+                name="meetingLocation"
+                defaultValue={targetedHobbyGroup?.meetingLocation}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
             </div>
@@ -71,7 +79,8 @@ const UpdateGroupForm = () => {
                 type="number"
                 min="2"
                 max="100"
-                placeholder="e.g. 15"
+                name="membersNumber"
+                defaultValue={targetedHobbyGroup?.membersNumber}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
             </div>
@@ -83,6 +92,8 @@ const UpdateGroupForm = () => {
               </label>
               <input
                 type="date"
+                defaultValue={targetedHobbyGroup?.startDate}
+                name="startDate"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
             </div>
@@ -94,7 +105,8 @@ const UpdateGroupForm = () => {
               </label>
               <input
                 type="url"
-                placeholder="https://example.com/image.jpg "
+                defaultValue={targetedHobbyGroup?.groupImg}
+                name="groupImg"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
             </div>
@@ -106,9 +118,12 @@ const UpdateGroupForm = () => {
                   User Name
                 </label>
                 <input
-                  placeholder="jhinku"
+                  required
+                  defaultValue={user?.displayName}
                   type="text"
-                  className="w-full px-4 py-3   border border-gray-300 rounded-lg focus:ring-[#C68EFD]"
+                  name="userName"
+                  readOnly
+                  className="w-full px-4 py-3  bg-gray-300  border border-gray-300 rounded-lg  cursor-not-allowed"
                 />
               </div>
               <div>
@@ -116,9 +131,11 @@ const UpdateGroupForm = () => {
                   Email
                 </label>
                 <input
-                  placeholder="jhinku@gmainl.com"
+                  defaultValue={user?.email}
                   type="email"
-                  className="w-full px-4 py-3   border border-gray-300 rounded-lg focus:ring-[#C68EFD]"
+                  name="userEmail"
+                  readOnly
+                  className="w-full px-4 py-3   border border-gray-300 rounded-lg bg-gray-300 cursor-not-allowed"
                 />
               </div>
             </div>
@@ -129,7 +146,7 @@ const UpdateGroupForm = () => {
                 type="submit"
                 className=" bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D] text-white py-3 px-8 rounded-md font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg cursor-pointer"
               >
-                Create Group Now
+                Update
               </button>
             </div>
           </form>
