@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import GroupDetailsCard from "../components/allGroupsPage/GroupDetailsCard";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { toast } from "react-toastify";
 
 const GroupDetailsPage = () => {
   const { id } = useParams();
   const [singleHobbyGroup, setSingleHobbyGroup] = useState();
+  const navigate = useNavigate();
 
   // Fetch single hobby groups items
   useEffect(() => {
@@ -41,6 +42,7 @@ const GroupDetailsPage = () => {
       return;
     } else {
       toast.success("You've joined the group successfully! 🎉");
+      navigate("/groups");
       return;
     }
   };
