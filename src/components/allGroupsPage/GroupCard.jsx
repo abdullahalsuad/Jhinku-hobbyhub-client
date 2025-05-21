@@ -1,4 +1,7 @@
+import { CiCalendarDate } from "react-icons/ci";
+import { GrValidate } from "react-icons/gr";
 import { MdArrowOutward, MdOutlinePushPin } from "react-icons/md";
+import { RiTeamLine } from "react-icons/ri";
 import { Link } from "react-router";
 
 const GroupCard = ({ group }) => {
@@ -15,9 +18,22 @@ const GroupCard = ({ group }) => {
             <h2 className="text-xl font-semibold text-[#00224D]">
               {group.groupName}
             </h2>
-            <p className="text-sm text-[#1f5490] mt-1">{group.category}</p>
-            <div className="mt-3 flex justify-between items-center text-sm text-purple-600">
-              <span>{group.membersNumber} Members</span>
+            <p className="text-[17px] text-[#1f5490] mt-1">
+              {group.category.toUpperCase()}
+            </p>
+
+            {/* user info */}
+            <div className="my-2">
+              <span className="flex items-center gap-2 text-gray-500">
+                <GrValidate /> {group.userName}
+              </span>
+            </div>
+
+            {/* members and location */}
+            <div className="my-4 flex justify-between items-center text-[17px] text-purple-600">
+              <span className="flex items-center gap-2">
+                <RiTeamLine size={20} /> {group.membersNumber} Members
+              </span>
               <span className="flex items-center gap-2">
                 <MdOutlinePushPin size={20} /> {group.meetingLocation}
               </span>

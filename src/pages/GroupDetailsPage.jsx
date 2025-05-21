@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import GroupCard from "../components/allGroupsPage/GroupCard";
 import GroupDetailsCard from "../components/allGroupsPage/GroupDetailsCard";
 import { useParams } from "react-router";
-import LoadingSpinner from "../components/Loader/LoadingSpinner";
+import { toast } from "react-toastify";
 
 const GroupDetailsPage = () => {
   const { id } = useParams();
@@ -23,12 +22,38 @@ const GroupDetailsPage = () => {
     fetchSingleHobbyGroupData();
   }, [id]);
 
+  const handlingJoinGroup = (createdDate) => {
+    // Convert input string (YYYY-MM-DD) into a Date object
+    const [year, month, day] = createdDate.split("-");
+    const inputDate = new Date(year, month - 1, day);
+
+    // Get today's date (without time)
+    const today = new Date();
+    const todayDateOnly = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate()
+    );
+
+    // Compare dates
+    if (inputDate < todayDateOnly) {
+      toast.warn("The group is no longer active 😕");
+      return;
+    } else {
+      toast.success("You've joined the group successfully! 🎉");
+      return;
+    }
+  };
+
   // if (!singleHobbyGroup) return <LoadingSpinner />;
 
   return (
     <>
       {/* UI */}
-      <GroupDetailsCard singleHobbyGroup={singleHobbyGroup} />
+      <GroupDetailsCard
+        singleHobbyGroup={singleHobbyGroup}
+        handlingJoinGroup={handlingJoinGroup}
+      />
     </>
   );
 };

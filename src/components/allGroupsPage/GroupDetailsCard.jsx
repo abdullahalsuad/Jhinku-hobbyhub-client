@@ -3,15 +3,10 @@ import { FaHandshake } from "react-icons/fa6";
 import { FiSend } from "react-icons/fi";
 import { GrValidate } from "react-icons/gr";
 import { IoIosArrowBack } from "react-icons/io";
-import {
-  MdAccessTime,
-  MdOutlineDateRange,
-  MdOutlinePushPin,
-} from "react-icons/md";
-import { RxAvatar } from "react-icons/rx";
+import { MdOutlineDateRange, MdOutlinePushPin } from "react-icons/md";
 import { Link } from "react-router";
 
-const GroupDetailsCard = ({ singleHobbyGroup }) => {
+const GroupDetailsCard = ({ singleHobbyGroup, handlingJoinGroup }) => {
   return (
     <>
       <div className="bg-white shadow-lg rounded-lg overflow-hidden max-w-3xl mx-auto mt-10">
@@ -28,13 +23,13 @@ const GroupDetailsCard = ({ singleHobbyGroup }) => {
         <div className="p-6">
           <div className="flex flex-wrap items-center gap-2 mb-10">
             <span className="bg-[#00224D] text-white text-[14px] px-4 py-2 rounded-full tracking-wider">
-              {singleHobbyGroup?.category}
+              {singleHobbyGroup?.category.toUpperCase()}
             </span>
             <span className="bg-[#003479] text-white text-[14px] px-4 py-2 rounded-full tracking-wider">
-              {singleHobbyGroup?.membersNumber} Members
+              {singleHobbyGroup?.membersNumber.toUpperCase()} Members
             </span>
             <span className="bg-[#1f5490] text-white text-[14px] px-4 py-2 rounded-full tracking-wider">
-              {singleHobbyGroup?.meetingLocation}
+              {singleHobbyGroup?.meetingLocation.toUpperCase()}
             </span>
             <span className="bg-[#284a75] text-white text-[14px] px-4 py-2 rounded-full tracking-wider">
               {singleHobbyGroup?.startDate}
@@ -80,12 +75,14 @@ const GroupDetailsCard = ({ singleHobbyGroup }) => {
             </p>
           </div>
 
+          {/* Buttons */}
           <div className="flex gap-4 my-8">
-            <Link to="/create-group">
-              <button className="bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D] cursor-pointer hover:-translate-y-1 hover:shadow-lg  transform ease-in-out text-white py-3 px-6 rounded-md transition-all duration-300 flex items-center gap-2 ">
-                Join Group <FaHandshake size={20} />
-              </button>
-            </Link>
+            <button
+              onClick={() => handlingJoinGroup(singleHobbyGroup?.startDate)}
+              className="bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D] cursor-pointer hover:-translate-y-1 hover:shadow-lg  transform ease-in-out text-white py-3 px-6 rounded-md transition-all duration-300 flex items-center gap-2 "
+            >
+              Join Group <FaHandshake size={20} />
+            </button>
 
             <Link
               to="/groups"
