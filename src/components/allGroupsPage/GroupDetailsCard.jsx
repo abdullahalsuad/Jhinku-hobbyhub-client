@@ -4,6 +4,8 @@ import { FiSend } from "react-icons/fi";
 import { GrValidate } from "react-icons/gr";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdOutlineDateRange, MdOutlinePushPin } from "react-icons/md";
+import { TbCategory } from "react-icons/tb";
+import { TiGroupOutline } from "react-icons/ti";
 import { Link } from "react-router";
 
 const GroupDetailsCard = ({
@@ -65,10 +67,18 @@ const GroupDetailsCard = ({
             {singleHobbyGroup?.description}
           </p>
 
-          <div className="mb-6">
+          <div className="mb-6 space-y-4">
             <h3 className="text-lg font-semibold text-gray-800 mb-3">
               Upcoming Event
             </h3>
+            <p className="text-gray-600 flex items-center gap-3 text-[17px]">
+              <TbCategory size={20} color="#00224D" />{" "}
+              {singleHobbyGroup?.category.toUpperCase()}
+            </p>
+            <p className="text-gray-600 flex items-center gap-3 text-[17px]">
+              <TiGroupOutline size={20} color="#00224D" />{" "}
+              {singleHobbyGroup?.membersNumber} Members
+            </p>
             <p className="text-gray-600 flex items-center gap-3 mb-2 text-[17px]">
               <MdOutlineDateRange size={20} color="#00224D" />
               {singleHobbyGroup?.startDate}

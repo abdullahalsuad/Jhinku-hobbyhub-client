@@ -1,6 +1,10 @@
 import { CiCalendarDate } from "react-icons/ci";
 import { GrValidate } from "react-icons/gr";
-import { MdArrowOutward, MdOutlineDateRange, MdOutlinePushPin } from "react-icons/md";
+import {
+  MdArrowOutward,
+  MdOutlineDateRange,
+  MdOutlinePushPin,
+} from "react-icons/md";
 import { RiTeamLine } from "react-icons/ri";
 import { Link } from "react-router";
 
@@ -43,6 +47,7 @@ const GroupCard = ({ group }) => {
               </span>
             </div>
             <Link
+              // onClick={window.scrollTo({ top: 500, behavior: "smooth" })}
               to={`/groups/${group._id}`}
               className="mt-4  text-[#1f5490] font-medium hover:text-[#00224D] transition flex items-center gap-4"
             >

@@ -11,7 +11,7 @@ const GroupDetailsPage = () => {
   const [isPastDate, setIsPastDate] = useState(false);
 
   const navigate = useNavigate();
-
+  
   // Fetch single hobby groups items
   useEffect(() => {
     const fetchSingleHobbyGroupData = async () => {

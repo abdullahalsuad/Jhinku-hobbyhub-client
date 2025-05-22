@@ -44,6 +44,14 @@ const GroupDetailsCardLoading = () => {
               <div className="h-5 w-5 bg-gray-300 rounded-full"></div>
               <div className="h-4 w-40 bg-gray-300 rounded"></div>
             </div>
+            <div className="flex items-center gap-3">
+              <div className="h-5 w-5 bg-gray-300 rounded-full"></div>
+              <div className="h-4 w-40 bg-gray-300 rounded"></div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="h-5 w-5 bg-gray-300 rounded-full"></div>
+              <div className="h-4 w-40 bg-gray-300 rounded"></div>
+            </div>
           </div>
 
           {/* Buttons Skeleton */}
