@@ -1,6 +1,5 @@
 import React from "react";
 import MyGroupsPagesTableRow from "./MyGroupsPagesTableRow";
-import { HiH1 } from "react-icons/hi2";
 import MyGroupsPagesTableRowLoading from "./MyGroupsPagesTableRowLoading";
 
 const MyGroupsTable = ({ myGroups, handleDelete, loading }) => {

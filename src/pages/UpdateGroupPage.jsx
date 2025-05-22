@@ -6,13 +6,23 @@ import { useNavigate, useParams } from "react-router";
 import { toast } from "react-toastify";
 
 const UpdateGroupPage = () => {
-  const { myHobbyGroups, setMyHobbyGroups } = use(FetchDataContext);
+  const { hobbyGroups, setHobbyGroups, myHobbyGroups, setMyHobbyGroups } =
+    use(FetchDataContext);
   const navigate = useNavigate();
   const { user } = use(AuthContext);
   const { id } = useParams();
 
   const targetedHobbyGroup = myHobbyGroups.find((group) => group._id === id);
-  const remainingHobbyGroup = myHobbyGroups.filter((group) => group._id !== id);
+
+  // my hobby groups
+  const remainingMyHobbyGroups = myHobbyGroups.filter(
+    (group) => group._id !== id
+  );
+
+  // all hobby groups
+  const remainingAllHobbyGroup = hobbyGroups.filter(
+    (group) => group._id !== id
+  );
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -41,7 +51,11 @@ const UpdateGroupPage = () => {
       if (modifiedHobbyGroups.modifiedCount) {
         toast.success("Hobby groups update successfully!");
 
-        setMyHobbyGroups([...remainingHobbyGroup, updatedHobbyGroups]);
+        // my hobby groups
+        setMyHobbyGroups([...remainingMyHobbyGroups, updatedHobbyGroups]);
+
+        // all hobby groups
+        setHobbyGroups([...remainingAllHobbyGroup, updatedHobbyGroups]);
         navigate("/my-groups");
       }
     } catch (error) {
