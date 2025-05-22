@@ -4,7 +4,7 @@ import { MdArrowOutward, MdOutlinePushPin } from "react-icons/md";
 import { RiTeamLine } from "react-icons/ri";
 import { Link } from "react-router";
 
-const FeatureGroupCard = ({ darkMode }) => {
+const FeatureGroupCard = ({ darkMode, group }) => {
   return (
     <>
       <div>
@@ -14,8 +14,8 @@ const FeatureGroupCard = ({ darkMode }) => {
           }`}
         >
           <img
-            src="https://images.pexels.com/photos/25211987/pexels-photo-25211987/free-photo-of-man-sitting-on-palace-courtyard-and-reading-book.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="groupName"
+            src={group.groupImg}
+            alt={group.groupName}
             className="w-full h-48 object-cover"
           />
           <div className="p-6">
@@ -24,14 +24,14 @@ const FeatureGroupCard = ({ darkMode }) => {
                 darkMode ? "text-white" : "text-[#00224D]"
               }`}
             >
-              groupName
+              {group.groupName}
             </h2>
             <p
               className={`text-[17px]  mt-1 ${
                 darkMode ? "text-white" : "text-[#1f5490]"
               } `}
             >
-              category.toUpperCase
+              {group.category.toUpperCase()}
             </p>
 
             {/* user info */}
@@ -41,7 +41,7 @@ const FeatureGroupCard = ({ darkMode }) => {
                   darkMode ? "text-white" : "text-gray-500"
                 }   `}
               >
-                <GrValidate /> userName
+                <GrValidate /> {group.userName}
               </span>
             </div>
 
@@ -52,10 +52,10 @@ const FeatureGroupCard = ({ darkMode }) => {
               }`}
             >
               <span className="flex items-center gap-2">
-                <RiTeamLine size={20} /> membersNumber Members
+                <RiTeamLine size={20} /> {group.membersNumber} Members
               </span>
               <span className="flex items-center gap-2">
-                <MdOutlinePushPin size={20} /> meetingLocation
+                <MdOutlinePushPin size={20} /> {group.meetingLocation}
               </span>
             </div>
             <Link

@@ -1,12 +1,14 @@
-import React from "react";
+import React, { use } from "react";
 import ReviewsSection from "../components/homePage/ReviewsSection";
 import AboutUsSection from "../components/homePage/AboutUsSection";
 import Banner from "../components/homePage/Banner";
 import FeaturedGroups from "../components/homePage/FeaturedGroups";
 import { useTheme } from "../context/ThemeProvider";
+import { FetchDataContext } from "../context/FetchDataProvider";
 
 const Home = () => {
   const { darkMode } = useTheme();
+  const { ongoingHobbyGroups } = use(FetchDataContext);
 
   return (
     <>
@@ -18,7 +20,7 @@ const Home = () => {
         {/* Banner */}
         <Banner />
         {/* feature */}
-        <FeaturedGroups />
+        <FeaturedGroups ongoingHobbyGroups={ongoingHobbyGroups} />
         {/* About US */}
         <AboutUsSection />
         {/* review */}

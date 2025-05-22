@@ -9,13 +9,8 @@ const PrivateRoute = ({ children }) => {
 
   let location = useLocation();
 
-  if (loading) {
-    return (
-      <>
-        <LoadingSpinner />
-      </>
-    );
-  }
+  if (loading) return <LoadingSpinner />;
+
   if (!user) {
     return <Navigate state={location.pathname} to="/login"></Navigate>;
   }

@@ -9,6 +9,7 @@ const FetchDataProvider = ({ children }) => {
   // state
   const [hobbyGroups, setHobbyGroups] = useState([]);
   const [myHobbyGroups, setMyHobbyGroups] = useState([]);
+  const [ongoingHobbyGroups, setOngoingHobbyGroups] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { user } = use(AuthContext);
@@ -48,13 +49,32 @@ const FetchDataProvider = ({ children }) => {
     fetchSingleHobbyGroupData();
   }, [user?.email]);
 
+  // Fetch all ongoing hobby groups items
+  useEffect(() => {
+    const fetchAllOngoingHobbyGroupsData = async () => {
+      try {
+        const response = await fetch(
+          "https://jhinku-hobbyhub-server.vercel.app/api/ongoing"
+        );
+        const data = await response.json();
+        setOngoingHobbyGroups(data);
+        setLoading(false);
+      } catch (error) {
+        console.log("Failed to fetch all hobby groups data", error);
+      }
+    };
+
+    fetchAllOngoingHobbyGroupsData();
+  }, []);
+
   // value
   const value = {
     hobbyGroups,
     setHobbyGroups,
-    loading,
+    ongoingHobbyGroups,
     myHobbyGroups,
     setMyHobbyGroups,
+    loading,
   };
 
   return <FetchDataContext value={value}>{children}</FetchDataContext>;

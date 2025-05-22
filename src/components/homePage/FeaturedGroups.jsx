@@ -3,7 +3,9 @@ import FeatureGroupCard from "./FeatureGroupCard";
 import { Link } from "react-router";
 import { useTheme } from "../../context/ThemeProvider";
 
-const FeaturedGroups = () => {
+const FeaturedGroups = ({ ongoingHobbyGroups }) => {
+  console.log(ongoingHobbyGroups);
+
   const { darkMode } = useTheme();
 
   return (
@@ -20,12 +22,13 @@ const FeaturedGroups = () => {
 
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <FeatureGroupCard darkMode={darkMode} />
-            <FeatureGroupCard />
-            <FeatureGroupCard />
-            <FeatureGroupCard />
-            <FeatureGroupCard />
-            <FeatureGroupCard />
+            {ongoingHobbyGroups.map((group) => (
+              <FeatureGroupCard
+                key={group._id}
+                darkMode={darkMode}
+                group={group}
+              />
+            ))}
           </div>
 
           {/* Button */}
