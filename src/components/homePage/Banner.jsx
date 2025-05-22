@@ -15,7 +15,7 @@ const Slide = ({ title, description, imageUrl }) => {
           <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
             {title}
           </h1>
-          <p className="text-gray-300 mb-10 max-w-lg mx-auto md:mx-0">
+          <p className="text-gray-300 mb-10 max-w-lg mx-auto md:mx-0 text-xl">
             {description}
           </p>
 
@@ -92,6 +92,13 @@ const Banner = () => {
         "Whether it’s art, tech, fitness, or anything in between, there’s always something new to learn and enjoy.",
       imageUrl:
         "https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=600 ",
+    },
+    {
+      title: "Enjoy You Free Time.",
+      description:
+        "Take a break and make the most of your free time with relaxing, fun, and fulfilling activities.",
+      imageUrl:
+        "https://images.pexels.com/photos/32190740/pexels-photo-32190740/free-photo-of-exciting-football-match-on-green-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
   ];
 
