@@ -83,14 +83,14 @@ const GroupDetailsCard = ({
           <div className="flex gap-4 my-8">
             {isPastDate ? (
               <button
-                onClick={() => handlingJoinGroup(singleHobbyGroup?.startDate)}
-                className="bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D]  hover:-translate-y-1 hover:shadow-lg  transform ease-in-out text-white py-3 px-6 rounded-md transition-all duration-300 flex items-center gap-2 cursor-not-allowed"
+                disabled
+                className="bg-gray-500 text-white py-3 px-6 rounded-md duration-300 flex items-center gap-2 cursor-not-allowed opacity-60"
               >
                 No longer active <FaHandshake size={20} />
               </button>
             ) : (
               <button
-                onClick={() => handlingJoinGroup(singleHobbyGroup?.startDate)}
+                onClick={handlingJoinGroup}
                 className="bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D] cursor-pointer hover:-translate-y-1 hover:shadow-lg  transform ease-in-out text-white py-3 px-6 rounded-md transition-all duration-300 flex items-center gap-2 "
               >
                 Join Group <FaHandshake size={20} />

@@ -1,6 +1,10 @@
 import React from "react";
 import { GrValidate } from "react-icons/gr";
-import { MdArrowOutward, MdOutlinePushPin } from "react-icons/md";
+import {
+  MdArrowOutward,
+  MdOutlineDateRange,
+  MdOutlinePushPin,
+} from "react-icons/md";
 import { RiTeamLine } from "react-icons/ri";
 import { Link } from "react-router";
 
@@ -41,6 +45,10 @@ const FeatureGroupCard = ({ darkMode, group }) => {
               }   `}
             >
               <GrValidate /> {group.userName}
+            </span>
+
+            <span className="flex items-center gap-2 text-gray-500">
+              <MdOutlineDateRange /> {group.startDate}
             </span>
           </div>
 

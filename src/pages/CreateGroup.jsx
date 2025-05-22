@@ -40,7 +40,6 @@ const CreateGroup = () => {
 
       const createHobbyGroup = await response.json();
       if (createHobbyGroup.insertedId) {
-        // console.log("hobby group added:", createHobbyGroup);
         toast.success("hobby group added successfully!");
 
         // UI update

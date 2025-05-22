@@ -1,6 +1,6 @@
 import { CiCalendarDate } from "react-icons/ci";
 import { GrValidate } from "react-icons/gr";
-import { MdArrowOutward, MdOutlinePushPin } from "react-icons/md";
+import { MdArrowOutward, MdOutlineDateRange, MdOutlinePushPin } from "react-icons/md";
 import { RiTeamLine } from "react-icons/ri";
 import { Link } from "react-router";
 
@@ -26,6 +26,10 @@ const GroupCard = ({ group }) => {
             <div className="my-2">
               <span className="flex items-center gap-2 text-gray-500">
                 <GrValidate /> {group.userName}
+              </span>
+
+              <span className="flex items-center gap-2 text-gray-500">
+                <MdOutlineDateRange /> {group.startDate}
               </span>
             </div>
 

@@ -39,7 +39,6 @@ const UpdateGroupPage = () => {
 
       const modifiedHobbyGroups = await response.json();
       if (modifiedHobbyGroups.modifiedCount) {
-        console.log("Hobby groups:", modifiedHobbyGroups);
         toast.success("Hobby groups update successfully!");
 
         setMyHobbyGroups([...remainingHobbyGroup, updatedHobbyGroups]);

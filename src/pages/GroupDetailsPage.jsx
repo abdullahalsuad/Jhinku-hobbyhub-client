@@ -20,8 +20,23 @@ const GroupDetailsPage = () => {
           `https://jhinku-hobbyhub-server.vercel.app/api/groups/${id}`
         );
         const data = await response.json();
+
         setSingleHobbyGroup(data);
         setLoading(false);
+
+        // Check if the group's date is in the past
+        const inputDate = new Date(data.startDate);
+        const today = new Date();
+        const todayDateOnly = new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          today.getDate()
+        );
+
+        if (inputDate < todayDateOnly) {
+          toast.warn("The group is no longer active 😕");
+          setIsPastDate(true);
+        }
       } catch (error) {
         console.log("Failed to fetch all hobby groups data", error);
       }
@@ -31,32 +46,10 @@ const GroupDetailsPage = () => {
   }, [id]);
 
   // handling join group
-  const handlingJoinGroup = (createdDate) => {
-    // Convert input string (YYYY-MM-DD) into a Date object
-    const [year, month, day] = createdDate.split("-");
-    const inputDate = new Date(year, month - 1, day);
-
-    // Get today's date (without time)
-    const today = new Date();
-    const todayDateOnly = new Date(
-      today.getFullYear(),
-      today.getMonth(),
-      today.getDate()
-    );
-
-    // Compare dates
-    if (inputDate < todayDateOnly) {
-      toast.warn("The group is no longer active 😕");
-      setIsPastDate(true);
-      return;
-    } else {
-      toast.success("You've joined the group successfully! 🎉");
-      navigate("/groups");
-      return;
-    }
+  const handlingJoinGroup = () => {
+    toast.success("You've joined the group successfully! 🎉");
+    navigate("/groups");
   };
-
-  // if (!singleHobbyGroup) return <LoadingSpinner />;
 
   return (
     <>
