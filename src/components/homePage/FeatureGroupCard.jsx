@@ -4,31 +4,53 @@ import { MdArrowOutward, MdOutlinePushPin } from "react-icons/md";
 import { RiTeamLine } from "react-icons/ri";
 import { Link } from "react-router";
 
-const FeatureGroupCard = () => {
+const FeatureGroupCard = ({ darkMode }) => {
   return (
     <>
       <div>
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:-translate-y-1 hover:shadow-xl">
+        <div
+          className={` rounded-lg border border-gray-300 shadow-lg overflow-hidden transform transition hover:-translate-y-1 hover:shadow-xl ${
+            darkMode ? "bg-gray-500" : "bg-white"
+          }`}
+        >
           <img
             src="https://images.pexels.com/photos/25211987/pexels-photo-25211987/free-photo-of-man-sitting-on-palace-courtyard-and-reading-book.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="groupName"
             className="w-full h-48 object-cover"
           />
           <div className="p-6">
-            <h2 className="text-xl font-semibold text-[#00224D]">groupName</h2>
-            <p className="text-[17px] text-[#1f5490] mt-1">
+            <h2
+              className={`text-xl font-semibold text-[#00224D] ${
+                darkMode ? "text-white" : "text-[#00224D]"
+              }`}
+            >
+              groupName
+            </h2>
+            <p
+              className={`text-[17px]  mt-1 ${
+                darkMode ? "text-white" : "text-[#1f5490]"
+              } `}
+            >
               category.toUpperCase
             </p>
 
             {/* user info */}
             <div className="my-2">
-              <span className="flex items-center gap-2 text-gray-500">
+              <span
+                className={`flex items-center gap-2  ${
+                  darkMode ? "text-white" : "text-gray-500"
+                }   `}
+              >
                 <GrValidate /> userName
               </span>
             </div>
 
             {/* members and location */}
-            <div className="my-4 flex justify-between items-center text-[17px] text-purple-600">
+            <div
+              className={`my-4 flex justify-between items-center text-[17px]   ${
+                darkMode ? "text-white" : "text-purple-600"
+              }`}
+            >
               <span className="flex items-center gap-2">
                 <RiTeamLine size={20} /> membersNumber Members
               </span>
@@ -36,7 +58,11 @@ const FeatureGroupCard = () => {
                 <MdOutlinePushPin size={20} /> meetingLocation
               </span>
             </div>
-            <Link className="mt-4  text-[#1f5490] font-medium hover:text-[#00224D] transition flex items-center gap-4">
+            <Link
+              className={`mt-4  ] font-medium hover:text-[#00224D] transition flex items-center gap-4  ${
+                darkMode ? "text-black" : "text-[#1f5490]"
+              }`}
+            >
               See More <MdArrowOutward />
             </Link>
           </div>

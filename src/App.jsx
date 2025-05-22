@@ -9,16 +9,16 @@ function App() {
   return (
     <>
       <>
-        <div className="min-h-screen flex flex-col bg-[#F2F9FF]">
+        <div className="min-h-screen   bg-[#F2F9FF]">
           {/* Navbar and main content */}
-          <div className="flex-grow">
+          <div className="">
             <div className="">
               <Navbar />
               <hr className="text-gray-700" />
             </div>
 
             {/* Main Content */}
-            <div className="mb-20">
+            <div>
               <FetchDataProvider>
                 <Outlet />
               </FetchDataProvider>
@@ -27,7 +27,9 @@ function App() {
 
           {/* Footer */}
 
-          <Footer />
+          <div>
+            <Footer />
+          </div>
         </div>
 
         {/* toast */}

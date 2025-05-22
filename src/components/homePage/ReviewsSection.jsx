@@ -1,6 +1,8 @@
 import React from "react";
+import { useTheme } from "../../context/ThemeProvider";
 
 const ReviewsSection = () => {
+  const { darkMode } = useTheme();
   const reviews = [
     {
       name: "Sarah M.",
@@ -25,7 +27,11 @@ const ReviewsSection = () => {
   return (
     <section className="  text-white">
       <div className="w-10/12 mx-auto px-6 md:px-12  py-32 rounded-md ">
-        <h2 className="text-3xl font-bold text-center mb-12 text-black">
+        <h2
+          className={`text-3xl font-bold text-center mb-12 ${
+            darkMode ? "text-white" : "text-black"
+          }`}
+        >
           What Our Users Say
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

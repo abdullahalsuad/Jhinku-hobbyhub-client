@@ -1,12 +1,16 @@
-import React, { use, useState } from "react";
+import { use, useState } from "react";
 import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthProvider";
 import { IoIosLogOut } from "react-icons/io";
 import { toast } from "react-toastify";
 import { FaPeopleGroup } from "react-icons/fa6";
+import { useTheme } from "../../context/ThemeProvider";
+import { WiDaySunny } from "react-icons/wi";
+import { LuMoon } from "react-icons/lu";
 
 const Navbar = () => {
   const { user, signOutUser, setUser } = use(AuthContext);
+  const { toggleTheme, darkMode } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -84,20 +88,52 @@ const Navbar = () => {
 
           {/* Right section - Profile / Login */}
           <div className="flex items-center">
+            <div className="mr-4">
+              {darkMode ? (
+                <LuMoon
+                  size={40}
+                  onClick={toggleTheme}
+                  className="cursor-pointer"
+                />
+              ) : (
+                <WiDaySunny
+                  size={35}
+                  onClick={toggleTheme}
+                  className="cursor-pointer"
+                />
+              )}
+            </div>
             {user ? (
               <div className="lg:flex items-center space-x-4 hidden">
-                {/* Profile Image */}
-                <div className=" group py-4 ">
+                {/* Profile Image with Tooltip */}
+                <div className="relative group inline-block">
                   <img
                     src={user?.photoURL}
                     alt={user?.displayName}
-                    className="h-14 w-14 rounded-full object-cover cursor-pointer border border-[#C68EFD]"
+                    className="h-10 w-10 rounded-full object-cover cursor-pointer"
+                    data-tooltip-target="tooltip-bottom"
+                    data-tooltip-placement="bottom"
+                    onClick={() => {
+                      navigate("/account/my-profile");
+                    }}
                   />
+
+                  {/* Tooltip  */}
+                  <div
+                    id="tooltip-bottom"
+                    role="tooltip"
+                    className="absolute z-10 top-full left-1/2 -translate-x-1/2 mt-2 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity inline-block px-10 py-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-xs dark:bg-gray-700 whitespace-nowrap"
+                  >
+                    <span className="text-[18px]">{user?.displayName}</span>{" "}
+                    <br />
+                    <span>{user?.email}</span>
+                    <div className="tooltip-arrow" data-popper-arrow></div>
+                  </div>
                 </div>
 
                 <button
                   onClick={handleSignOut}
-                  className="flex items-center gap-2 text-[#C68EFD] hover:text-red-500 cursor-pointer"
+                  className="text-red-400 hover:text-red-600 font-medium cursor-pointer flex items-center gap-2 text-xl"
                 >
                   Logout <IoIosLogOut size={25} />
                 </button>

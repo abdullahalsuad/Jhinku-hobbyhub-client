@@ -1,19 +1,26 @@
 import React from "react";
 import FeatureGroupCard from "./FeatureGroupCard";
 import { Link } from "react-router";
+import { useTheme } from "../../context/ThemeProvider";
 
 const FeaturedGroups = () => {
+  const { darkMode } = useTheme();
+
   return (
     <>
       <div className="my-40">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl font-bold  text-center mb-10 py-4">
-            Explore All Groups
+          <h1
+            className={`text-3xl font-bold  text-center mb-10 py-4 ${
+              darkMode ? "text-white" : "text-black"
+            }`}
+          >
+            Featured Groups
           </h1>
 
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <FeatureGroupCard />
+            <FeatureGroupCard darkMode={darkMode} />
             <FeatureGroupCard />
             <FeatureGroupCard />
             <FeatureGroupCard />
@@ -25,7 +32,7 @@ const FeaturedGroups = () => {
           <div className="flex justify-center">
             <Link to="/groups">
               <button className="mt-4 group relative inline-flex h-12 items-center justify-center rounded-md px-6 font-medium bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D] text-white cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 transform ease-in-out ">
-                <span>Featured Groups</span>
+                <span>Explore All Groups</span>
                 <div className="relative ml-1 h-5 w-5 overflow-hidden">
                   <div className="absolute transition-all duration-200 group-hover:-translate-y-5 group-hover:translate-x-4">
                     <svg
