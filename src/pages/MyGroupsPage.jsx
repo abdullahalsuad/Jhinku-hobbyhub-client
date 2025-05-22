@@ -5,8 +5,11 @@ import Swal from "sweetalert2";
 import { FetchDataContext } from "../context/FetchDataProvider";
 
 const MyGroupsPage = () => {
-  const { myHobbyGroups, setMyHobbyGroups } = use(FetchDataContext);
-  const { setHobbyGroups } = use(FetchDataContext);
+  const { myHobbyGroups, setMyHobbyGroups, setHobbyGroups, loading } =
+    use(FetchDataContext);
+  console.log(loading);
+
+  console.log(myHobbyGroups);
 
   // handle delete
   const handleDelete = async (id) => {
@@ -56,7 +59,11 @@ const MyGroupsPage = () => {
           <h1 className="text-3xl font-bold  text-center mb-10">My Groups</h1>
 
           {/* Table */}
-          <MyGroupsTable myGroups={myHobbyGroups} handleDelete={handleDelete} />
+          <MyGroupsTable
+            myGroups={myHobbyGroups}
+            handleDelete={handleDelete}
+            loading={loading}
+          />
         </div>
       </div>
     </>

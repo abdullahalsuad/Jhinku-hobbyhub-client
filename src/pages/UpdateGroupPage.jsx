@@ -50,8 +50,6 @@ const UpdateGroupPage = () => {
     }
   };
 
-  console.log(myHobbyGroups.length);
-
   return (
     <>
       <UpdateGroupForm

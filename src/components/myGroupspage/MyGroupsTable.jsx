@@ -1,7 +1,9 @@
 import React from "react";
 import MyGroupsPagesTableRow from "./MyGroupsPagesTableRow";
+import { HiH1 } from "react-icons/hi2";
+import MyGroupsPagesTableRowLoading from "./MyGroupsPagesTableRowLoading";
 
-const MyGroupsTable = ({ myGroups, handleDelete }) => {
+const MyGroupsTable = ({ myGroups, handleDelete, loading }) => {
   return (
     <>
       <div className="bg-white shadow-lg rounded-lg border border-gray-300 overflow-hidden">
@@ -30,13 +32,17 @@ const MyGroupsTable = ({ myGroups, handleDelete }) => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {myGroups.map((group) => (
-                <MyGroupsPagesTableRow
-                  group={group}
-                  key={group._id}
-                  handleDelete={handleDelete}
-                />
-              ))}
+              {loading ? (
+                <MyGroupsPagesTableRowLoading />
+              ) : (
+                myGroups.map((group) => (
+                  <MyGroupsPagesTableRow
+                    group={group}
+                    key={group._id}
+                    handleDelete={handleDelete}
+                  />
+                ))
+              )}
             </tbody>
           </table>
         </div>

@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import GroupDetailsCard from "../components/allGroupsPage/GroupDetailsCard";
 import { useNavigate, useParams } from "react-router";
 import { toast } from "react-toastify";
+import GroupDetailsCardLoading from "../components/allGroupsPage/GroupDetailsCardLoading";
 
 const GroupDetailsPage = () => {
   const { id } = useParams();
   const [singleHobbyGroup, setSingleHobbyGroup] = useState();
+  const [loading, setLoading] = useState(true);
+  const [isPastDate, setIsPastDate] = useState(false);
+
   const navigate = useNavigate();
 
   // Fetch single hobby groups items
@@ -17,6 +21,7 @@ const GroupDetailsPage = () => {
         );
         const data = await response.json();
         setSingleHobbyGroup(data);
+        setLoading(false);
       } catch (error) {
         console.log("Failed to fetch all hobby groups data", error);
       }
@@ -42,6 +47,7 @@ const GroupDetailsPage = () => {
     // Compare dates
     if (inputDate < todayDateOnly) {
       toast.warn("The group is no longer active 😕");
+      setIsPastDate(true);
       return;
     } else {
       toast.success("You've joined the group successfully! 🎉");
@@ -55,10 +61,15 @@ const GroupDetailsPage = () => {
   return (
     <>
       {/* UI */}
-      <GroupDetailsCard
-        singleHobbyGroup={singleHobbyGroup}
-        handlingJoinGroup={handlingJoinGroup}
-      />
+      {loading ? (
+        <GroupDetailsCardLoading />
+      ) : (
+        <GroupDetailsCard
+          singleHobbyGroup={singleHobbyGroup}
+          handlingJoinGroup={handlingJoinGroup}
+          isPastDate={isPastDate}
+        />
+      )}
     </>
   );
 };

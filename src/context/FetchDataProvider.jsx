@@ -32,7 +32,7 @@ const FetchDataProvider = ({ children }) => {
     fetchHobbyGroupsData();
   }, []);
 
-  // Fetch single hobby groups items
+  // Fetch single user hobby groups items
   useEffect(() => {
     const fetchSingleHobbyGroupData = async () => {
       try {
@@ -41,6 +41,7 @@ const FetchDataProvider = ({ children }) => {
         );
         const data = await response.json();
         setMyHobbyGroups(data);
+        setLoading(false);
       } catch (error) {
         console.log("Failed to fetch all hobby groups data", error);
       }

@@ -2,10 +2,9 @@ import React from "react";
 import FeatureGroupCard from "./FeatureGroupCard";
 import { Link } from "react-router";
 import { useTheme } from "../../context/ThemeProvider";
+import FeatureGroupCardLoading from "./FeatureGroupCardLoading";
 
-const FeaturedGroups = ({ ongoingHobbyGroups }) => {
-  console.log(ongoingHobbyGroups);
-
+const FeaturedGroups = ({ ongoingHobbyGroups, loading }) => {
   const { darkMode } = useTheme();
 
   return (
@@ -22,17 +21,25 @@ const FeaturedGroups = ({ ongoingHobbyGroups }) => {
 
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ongoingHobbyGroups.map((group) => (
-              <FeatureGroupCard
-                key={group._id}
-                darkMode={darkMode}
-                group={group}
-              />
-            ))}
+            {loading ? (
+              <>
+                {[...Array(6)].map((_, index) => (
+                  <FeatureGroupCardLoading key={index} />
+                ))}
+              </>
+            ) : (
+              ongoingHobbyGroups.map((group) => (
+                <FeatureGroupCard
+                  key={group._id}
+                  darkMode={darkMode}
+                  group={group}
+                />
+              ))
+            )}
           </div>
 
           {/* Button */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-4">
             <Link to="/groups">
               <button className="mt-4 group relative inline-flex h-12 items-center justify-center rounded-md px-6 font-medium bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D] text-white cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 transform ease-in-out ">
                 <span>Explore All Groups</span>

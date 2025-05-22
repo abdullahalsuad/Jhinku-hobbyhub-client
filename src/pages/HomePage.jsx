@@ -8,7 +8,7 @@ import { FetchDataContext } from "../context/FetchDataProvider";
 
 const Home = () => {
   const { darkMode } = useTheme();
-  const { ongoingHobbyGroups } = use(FetchDataContext);
+  const { ongoingHobbyGroups, loading } = use(FetchDataContext);
 
   return (
     <>
@@ -20,7 +20,10 @@ const Home = () => {
         {/* Banner */}
         <Banner />
         {/* feature */}
-        <FeaturedGroups ongoingHobbyGroups={ongoingHobbyGroups} />
+        <FeaturedGroups
+          ongoingHobbyGroups={ongoingHobbyGroups}
+          loading={loading}
+        />
         {/* About US */}
         <AboutUsSection />
         {/* review */}
