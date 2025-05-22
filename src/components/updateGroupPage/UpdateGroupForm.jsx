@@ -34,6 +34,8 @@ const UpdateGroupForm = ({ user, targetedHobbyGroup, handleUpdate }) => {
                   {targetedHobbyGroup?.category}
                 </option>
                 <option value="drawing">Drawing & Painting</option>
+                <option value="stealing animals">Stealing Animals</option>
+                <option value="programming">Programming</option>
                 <option value="photography">Photography</option>
                 <option value="gaming">Video Gaming</option>
                 <option value="fishing">Fishing</option>

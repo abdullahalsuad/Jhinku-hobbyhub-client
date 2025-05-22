@@ -34,11 +34,11 @@ const CreateGroupForm = ({ handleCreateHobbyGroup, displayName, email }) => {
               >
                 <option value="">Select a category</option>
                 <option value="drawing">Drawing & Painting</option>
+                <option value="stealing animals">Stealing Animals</option>
                 <option value="programming">Programming</option>
                 <option value="photography">Photography</option>
                 <option value="gaming">Video Gaming</option>
                 <option value="fishing">Fishing</option>
-                <option value="stealing animals">Stealing Animals</option>
                 <option value="running">Running</option>
                 <option value="cooking">Cooking</option>
                 <option value="reading">Reading</option>
