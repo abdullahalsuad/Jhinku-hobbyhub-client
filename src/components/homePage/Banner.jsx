@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 // Slide Component
 const Slide = ({ title, description, imageUrl }) => {
   return (
-    <section className="h-[600px] bg-gradient-to-r from-[#00224D] via-[#1f5490] to-[#00224D] text-white py-20 px-6">
+    <section className="h-[600px] bg-gradient-to-r from-[#00224D] via-[#1f5490] to-[#00224D] text-white py-20 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         {/* Left Content */}
         <div className="md:w-1/2 text-center md:text-left">
@@ -50,7 +50,7 @@ const Slide = ({ title, description, imageUrl }) => {
           <img
             src={imageUrl}
             alt={title}
-            className="w-full h-auto rounded-lg shadow-xl"
+            className="w-full h-auto max-w-full rounded-lg shadow-xl object-cover"
           />
         </div>
       </div>
@@ -69,6 +69,9 @@ const Banner = () => {
     autoplay: true,
     autoplaySpeed: 4000,
     arrows: true,
+    // Add these settings to prevent overflow
+    adaptiveHeight: false,
+    variableWidth: false,
   };
 
   const slides = [
@@ -77,24 +80,24 @@ const Banner = () => {
       description:
         "Discover new hobbies and unlock new passions by joining groups that match your interests.",
       imageUrl:
-        "https://images.pexels.com/photos/5044193/pexels-photo-5044193.jpeg?auto=compress&cs=tinysrgb&w=600 ",
+        "https://images.pexels.com/photos/5044193/pexels-photo-5044193.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       title: "Connect With Like-Minded People.",
       description:
         "Find communities where you can share experiences, grow skills, and connect with others who love what you love.",
       imageUrl:
-        "https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg?auto=compress&cs=tinysrgb&w=600 ",
+        "https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       title: "Explore New Hobbies Every Day.",
       description:
-        "Whether it’s art, tech, fitness, or anything in between, there’s always something new to learn and enjoy.",
+        "Whether it's art, tech, fitness, or anything in between, there's always something new to learn and enjoy.",
       imageUrl:
-        "https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=600 ",
+        "https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
-      title: "Enjoy You Free Time.",
+      title: "Enjoy Your Free Time.",
       description:
         "Take a break and make the most of your free time with relaxing, fun, and fulfilling activities.",
       imageUrl:
@@ -103,11 +106,13 @@ const Banner = () => {
   ];
 
   return (
-    <Slider {...settings}>
-      {slides.map((slide, index) => (
-        <Slide key={index} {...slide} />
-      ))}
-    </Slider>
+    <div className="overflow-hidden">
+      <Slider {...settings}>
+        {slides.map((slide, index) => (
+          <Slide key={index} {...slide} />
+        ))}
+      </Slider>
+    </div>
   );
 };
 
