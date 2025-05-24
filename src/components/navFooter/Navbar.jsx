@@ -113,9 +113,6 @@ const Navbar = () => {
                     className="h-10 w-10 rounded-full object-cover cursor-pointer"
                     data-tooltip-target="tooltip-bottom"
                     data-tooltip-placement="bottom"
-                    onClick={() => {
-                      navigate("/account/my-profile");
-                    }}
                   />
 
                   {/* Tooltip  */}
@@ -240,7 +237,6 @@ const Navbar = () => {
                   src={user?.photoURL}
                   alt={user?.displayName}
                   className="h-8 w-8 rounded-full border border-[#C68EFD]"
-                  onClick={() => navigate("/account/my-profile")}
                 />
                 <button
                   onClick={handleSignOut}
