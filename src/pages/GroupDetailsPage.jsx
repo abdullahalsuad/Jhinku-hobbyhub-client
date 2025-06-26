@@ -11,7 +11,10 @@ const GroupDetailsPage = () => {
   const [isPastDate, setIsPastDate] = useState(false);
 
   const navigate = useNavigate();
-  
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   // Fetch single hobby groups items
   useEffect(() => {
     const fetchSingleHobbyGroupData = async () => {

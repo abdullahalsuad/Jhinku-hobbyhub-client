@@ -14,9 +14,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold mb-3 text-[#C68EFD]">
-              Jhinku Hobby Hub
-            </h3>
+            <h3 className="text-xl font-bold mb-3 text-[#C68EFD]">The Hub</h3>
             <p className="text-gray-300 text-sm">
               Connecting people through shared passions. Build your tribe today.
             </p>
@@ -95,8 +93,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="mt-10 pt-6 border-t border-[#3C424B] text-center text-sm text-gray-400">
-          &copy; {new Date().getFullYear()} Jhinku Hobby Hub. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} The Hub. All rights reserved.
         </div>
       </div>
     </footer>

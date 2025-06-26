@@ -37,7 +37,7 @@ const Navbar = () => {
             >
               <FaPeopleGroup size={30} className="text-[#C68EFD]" />
               <span className="ml-2 text-xl font-bold text-[#C68EFD]">
-                Jhinku Hobby Hub
+                The Hub
               </span>
             </button>
           </div>

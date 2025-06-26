@@ -12,6 +12,7 @@ import UpdateGroupPage from "../pages/UpdateGroupPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import ContactPage from "../pages/ContactPage";
 import AboutPage from "../pages/AboutPage";
+import HobbyTipsDetails from "../components/homePage/HobbyTipsDetails";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactPage />,
+      },
+      {
+        path: "/blogs/:id",
+        element: <HobbyTipsDetails />,
       },
       {
         path: "/about",

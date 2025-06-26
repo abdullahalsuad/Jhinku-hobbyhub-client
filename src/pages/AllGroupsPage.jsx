@@ -1,10 +1,14 @@
-import { use } from "react";
+import { use, useEffect } from "react";
 import GroupCard from "../components/allGroupsPage/GroupCard";
 import { FetchDataContext } from "../context/FetchDataProvider";
 import LoadingSpinner from "../components/Loader/LoadingSpinner";
 
 const AllGroupsPage = () => {
   const { hobbyGroups, loading } = use(FetchDataContext);
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (loading) return <LoadingSpinner />;
 

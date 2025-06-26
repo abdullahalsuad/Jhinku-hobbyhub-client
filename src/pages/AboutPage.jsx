@@ -158,7 +158,7 @@ const AboutPage = () => {
       <div
         data-aos="fade-up"
         data-aos-delay="600"
-        className="text-center py-16 px-4 bg-gradient-to-r from-blue-900 to-[#002553] rounded-2xl text-white"
+        className="text-center py-16 px-4 bg-gradient-to-r from-blue-900 to-[#68a6f1] rounded-2xl text-white"
       >
         <h2 className="text-2xl md:text-3xl font-bold mb-4">
           Ready to Join the Fun?
@@ -168,7 +168,7 @@ const AboutPage = () => {
           is the perfect place to start.
         </p>
         <Link to={"/signup"}>
-          <button className="px-8 py-3 bg-white text-indigo-700 font-semibold rounded-lg shadow hover:bg-gray-100 transition duration-300">
+          <button className="px-8 py-3 bg-gradient-to-r from-blue-900 to-[#002553] text-white font-semibold rounded-lg shadow hover:bg-gray-100 transition duration-300 cursor-pointer  transform hover:-translate-y-1 ">
             Get Started Now
           </button>
         </Link>

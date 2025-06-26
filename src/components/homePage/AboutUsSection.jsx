@@ -4,7 +4,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 const AboutUsSection = () => {
   return (
-    <section className="py-16">
+    <section className="py-16 my-30">
       <div className="w-10/12 mx-auto  md:px-12 flex flex-col md:flex-row items-center">
         {/* Image */}
         <div className="md:w-1/2 mb-8 md:mb-0">
@@ -19,7 +19,7 @@ const AboutUsSection = () => {
         <div className="md:w-1/2 md:pl-12">
           <h2 className="text-3xl font-bold  mb-4 text-[#00224D] ">
             <Typewriter
-              words={["About Jhinku Hobby Hub"]}
+              words={["About The Hub"]}
               loop={true} // or true for infinite
               cursor
               cursorStyle="|"
@@ -29,10 +29,9 @@ const AboutUsSection = () => {
             />
           </h2>
           <p className="mb-6 text-x text-gray-700">
-            Jhinku Hobby Hub was created to help people find joy in shared
-            interests. Whether you're into art, music, sports, or tech, our
-            platform connects you with like-minded individuals right in your
-            community.
+            The Hub was created to help people find joy in shared interests.
+            Whether you're into art, music, sports, or tech, our platform
+            connects you with like-minded individuals right in your community.
           </p>
           <p className="mb-6 text-x text-gray-700 ">
             We believe that hobbies should be more than solo activities —
