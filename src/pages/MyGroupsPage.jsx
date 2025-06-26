@@ -51,37 +51,35 @@ const MyGroupsPage = () => {
 
   return (
     <>
-      <div className="min-h-screen  py-12 px-4 mb-20">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl font-bold  text-center mb-10">My Groups</h1>
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-3xl font-bold  text-center mb-10">My Groups</h1>
 
-          {/* Table or Empty State */}
-          {myHobbyGroups.length === 0 ? (
-            <div className="flex justify-center items-center min-h-[40vh] px-4">
-              <div className="text-center max-w-md p-8   ">
-                <div className="text-5xl mb-4">👥</div>
-                <h2 className="text-2xl font-semibold text-gray-800  mb-2">
-                  No Groups Yet!
-                </h2>
-                <p className="text-gray-600  mb-6">
-                  Create your first group to start collaborating with others.
-                </p>
-                <button
-                  onClick={() => navigate("/create-group")}
-                  className="px-6 py-2 bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D] text-white font-medium rounded-lg shadow-md  duration-300 transform hover:-translate-y-0.5 cursor-pointer transition-transform hover:scale-105 "
-                >
-                  Create Group
-                </button>
-              </div>
+        {/* Table or Empty State */}
+        {myHobbyGroups.length === 0 ? (
+          <div className="flex justify-center items-center min-h-[40vh] px-4">
+            <div className="text-center max-w-md p-8   ">
+              <div className="text-5xl mb-4">👥</div>
+              <h2 className="text-2xl font-semibold text-gray-800  mb-2">
+                No Groups Yet!
+              </h2>
+              <p className="text-gray-600  mb-6">
+                Create your first group to start collaborating with others.
+              </p>
+              <button
+                onClick={() => navigate("/create-group")}
+                className="px-6 py-2 bg-gradient-to-r from-[#00224D] via-[#003479] to-[#1f5490] hover:from-[#1f5490] hover:via-[#003479] hover:to-[#00224D] text-white font-medium rounded-lg shadow-md  duration-300 transform hover:-translate-y-0.5 cursor-pointer transition-transform hover:scale-105 "
+              >
+                Create Group
+              </button>
             </div>
-          ) : (
-            <MyGroupsTable
-              myGroups={myHobbyGroups}
-              handleDelete={handleDelete}
-              loading={loading}
-            />
-          )}
-        </div>
+          </div>
+        ) : (
+          <MyGroupsTable
+            myGroups={myHobbyGroups}
+            handleDelete={handleDelete}
+            loading={loading}
+          />
+        )}
       </div>
     </>
   );

@@ -5,8 +5,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { toast } from "react-toastify";
 import { FaPeopleGroup } from "react-icons/fa6";
 
-import { WiDaySunny } from "react-icons/wi";
-import { LuMoon } from "react-icons/lu";
+
 
 const Navbar = () => {
   const { user, signOutUser, setUser } = use(AuthContext);
@@ -64,26 +63,7 @@ const Navbar = () => {
             >
               All Groups
             </NavLink>
-            <NavLink
-              to="/create-group"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-[#C68EFD] border-b-2 border-[#C68EFD] px-3 py-2 text-sm font-medium"
-                  : "text-gray-200 hover:text-[#C68EFD] px-3 py-2 text-sm font-medium transition"
-              }
-            >
-              Create Group
-            </NavLink>
-            <NavLink
-              to="/my-groups"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-[#C68EFD] border-b-2 border-[#C68EFD] px-3 py-2 text-sm font-medium"
-                  : "text-gray-200 hover:text-[#C68EFD] px-3 py-2 text-sm font-medium transition"
-              }
-            >
-              My Groups
-            </NavLink>
+
             <NavLink
               to="/about"
               className={({ isActive }) =>
@@ -104,6 +84,19 @@ const Navbar = () => {
             >
               Contact Us
             </NavLink>
+
+            {user && (
+              <NavLink
+                to="/dashboard"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[#C68EFD] border-b-2 border-[#C68EFD] px-3 py-2 text-sm font-medium"
+                    : "text-gray-200 hover:text-[#C68EFD] px-3 py-2 text-sm font-medium transition"
+                }
+              >
+                Dashboard
+              </NavLink>
+            )}
           </div>
 
           {/* Right section - Profile / Login */}
@@ -213,28 +206,7 @@ const Navbar = () => {
             >
               All Groups
             </NavLink>
-            <NavLink
-              to="/create-group"
-              className={({ isActive }) =>
-                isActive
-                  ? "block text-[#C68EFD] border-l-4 border-[#C68EFD] pl-3 py-2 text-base font-medium"
-                  : "block text-gray-200 hover:bg-[#1f5490] pl-3 py-2 text-base font-medium"
-              }
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Create Group
-            </NavLink>
-            <NavLink
-              to="/my-groups"
-              className={({ isActive }) =>
-                isActive
-                  ? "block text-[#C68EFD] border-l-4 border-[#C68EFD] pl-3 py-2 text-base font-medium"
-                  : "block text-gray-200 hover:bg-[#1f5490] pl-3 py-2 text-base font-medium"
-              }
-              onClick={() => setIsMenuOpen(false)}
-            >
-              My Groups
-            </NavLink>
+
             <NavLink
               to="/about"
               className={({ isActive }) =>
@@ -257,6 +229,20 @@ const Navbar = () => {
             >
               Contact Us
             </NavLink>
+
+            {user && (
+              <NavLink
+                to="/dashboard"
+                className={({ isActive }) =>
+                  isActive
+                    ? "block text-[#C68EFD] border-l-4 border-[#C68EFD] pl-3 py-2 text-base font-medium"
+                    : "block text-gray-200 hover:bg-[#1f5490] pl-3 py-2 text-base font-medium"
+                }
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Dashboard
+              </NavLink>
+            )}
 
             {user ? (
               <div className="flex items-center space-x-4 mt-4 px-4">

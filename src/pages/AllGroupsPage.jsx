@@ -14,7 +14,7 @@ const AllGroupsPage = () => {
 
   return (
     <>
-      <div className="min-h-screen  py-12 px-4">
+      <div className="min-h-screen  py-12 px-4 mt-20">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-3xl font-bold  text-center mb-10">
             Explore All Groups

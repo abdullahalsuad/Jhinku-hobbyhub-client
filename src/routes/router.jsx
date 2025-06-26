@@ -13,6 +13,8 @@ import NotFoundPage from "../pages/NotFoundPage";
 import ContactPage from "../pages/ContactPage";
 import AboutPage from "../pages/AboutPage";
 import HobbyTipsDetails from "../components/homePage/HobbyTipsDetails";
+import DashboardLayout from "../components/dashboard/DashboardLayout";
+import Dashboard from "../components/dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -54,14 +56,14 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/my-groups",
-        element: (
-          <PrivateRoute>
-            <MyGroupsPage />
-          </PrivateRoute>
-        ),
-      },
+      // {
+      //   path: "/my-groups",
+      //   element: (
+      //     <PrivateRoute>
+      //       <MyGroupsPage />
+      //     </PrivateRoute>
+      //   ),
+      // },
       {
         path: "my-groups/update/:id",
         element: (
@@ -70,6 +72,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
       {
         path: "/login",
         element: <LoginPage />,
@@ -77,6 +80,30 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <RegisterPage />,
+      },
+    ],
+  },
+
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    errorElement: <NotFoundPage />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        path: "create-group",
+        element: <CreateGroup />,
+      },
+      {
+        path: "my-groups",
+        element: <MyGroupsPage />,
       },
     ],
   },

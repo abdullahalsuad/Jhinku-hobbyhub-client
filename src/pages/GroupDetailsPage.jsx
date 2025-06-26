@@ -55,7 +55,7 @@ const GroupDetailsPage = () => {
   };
 
   return (
-    <>
+    <div className="mt-20">
       {/* UI */}
       {loading ? (
         <GroupDetailsCardLoading />
@@ -66,7 +66,7 @@ const GroupDetailsPage = () => {
           isPastDate={isPastDate}
         />
       )}
-    </>
+    </div>
   );
 };
 

@@ -13,7 +13,7 @@ const AboutPage = () => {
     });
   }, []);
   return (
-    <section className="bg-white py-20 px-4">
+    <section className=" py-20 px-4 mt-10">
       {/* Hero Section */}
       <div data-aos="fade-up" className="max-w-5xl mx-auto text-center mb-20">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">

@@ -11,8 +11,8 @@ function App() {
       <>
         <div className="min-h-screen   bg-[#F2F9FF]">
           {/* Navbar and main content */}
-          <div className="">
-            <div className="">
+          <div>
+            <div>
               <Navbar />
               <hr className="text-gray-700" />
             </div>
