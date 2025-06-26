@@ -4,13 +4,13 @@ import { AuthContext } from "../../context/AuthProvider";
 import { IoIosLogOut } from "react-icons/io";
 import { toast } from "react-toastify";
 import { FaPeopleGroup } from "react-icons/fa6";
-import { useTheme } from "../../context/ThemeProvider";
+
 import { WiDaySunny } from "react-icons/wi";
 import { LuMoon } from "react-icons/lu";
 
 const Navbar = () => {
   const { user, signOutUser, setUser } = use(AuthContext);
-  const { toggleTheme, darkMode } = useTheme();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -108,21 +108,6 @@ const Navbar = () => {
 
           {/* Right section - Profile / Login */}
           <div className="flex items-center">
-            <div className="mr-4">
-              {darkMode ? (
-                <LuMoon
-                  size={40}
-                  onClick={toggleTheme}
-                  className="cursor-pointer"
-                />
-              ) : (
-                <WiDaySunny
-                  size={35}
-                  onClick={toggleTheme}
-                  className="cursor-pointer"
-                />
-              )}
-            </div>
             {user ? (
               <div className="lg:flex items-center space-x-4 hidden">
                 {/* Profile Image with Tooltip */}

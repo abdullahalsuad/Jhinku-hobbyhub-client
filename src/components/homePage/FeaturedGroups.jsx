@@ -1,21 +1,14 @@
 import React from "react";
 import FeatureGroupCard from "./FeatureGroupCard";
 import { Link } from "react-router";
-import { useTheme } from "../../context/ThemeProvider";
 import FeatureGroupCardLoading from "./FeatureGroupCardLoading";
 
 const FeaturedGroups = ({ ongoingHobbyGroups, loading }) => {
-  const { darkMode } = useTheme();
-
   return (
     <>
       <div className="my-40">
         <div className="max-w-7xl mx-auto">
-          <h1
-            className={`text-3xl font-bold  text-center mb-10 py-4 ${
-              darkMode ? "text-white" : "text-black"
-            }`}
-          >
+          <h1 className="text-3xl font-bold  text-center mb-10 py-4 text-black">
             Featured Groups
           </h1>
 
@@ -31,7 +24,7 @@ const FeaturedGroups = ({ ongoingHobbyGroups, loading }) => {
               ongoingHobbyGroups.map((group) => (
                 <FeatureGroupCard
                   key={group._id}
-                  darkMode={darkMode}
+                  // darkMode={darkMode}
                   group={group}
                 />
               ))

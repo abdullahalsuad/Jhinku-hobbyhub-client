@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router";
 import { Typewriter } from "react-simple-typewriter";
-import { useTheme } from "../../context/ThemeProvider";
 
 const AboutUsSection = () => {
-  const { darkMode } = useTheme();
   return (
     <section className="py-16">
       <div className="w-10/12 mx-auto  md:px-12 flex flex-col md:flex-row items-center">
@@ -19,11 +17,7 @@ const AboutUsSection = () => {
 
         {/* Content */}
         <div className="md:w-1/2 md:pl-12">
-          <h2
-            className={`text-3xl font-bold  mb-4 ${
-              darkMode ? "text-white" : "text-[#00224D]"
-            }`}
-          >
+          <h2 className="text-3xl font-bold  mb-4 text-[#00224D] ">
             <Typewriter
               words={["About Jhinku Hobby Hub"]}
               loop={true} // or true for infinite
@@ -34,21 +28,13 @@ const AboutUsSection = () => {
               delaySpeed={1000}
             />
           </h2>
-          <p
-            className={` mb-6 text-x ${
-              darkMode ? "text-white" : "text-gray-700"
-            }`}
-          >
+          <p className="mb-6 text-x text-gray-700">
             Jhinku Hobby Hub was created to help people find joy in shared
             interests. Whether you're into art, music, sports, or tech, our
             platform connects you with like-minded individuals right in your
             community.
           </p>
-          <p
-            className={` mb-6 text-x ${
-              darkMode ? "text-white" : "text-gray-700"
-            }`}
-          >
+          <p className="mb-6 text-x text-gray-700 ">
             We believe that hobbies should be more than solo activities —
             they're opportunities to bond, learn, and grow together. Join
             groups, start discussions, and attend events that match your
