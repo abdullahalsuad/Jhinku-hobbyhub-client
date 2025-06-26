@@ -29,7 +29,7 @@ const MyGroupsPagesTableRow = ({ group, handleDelete }) => {
         {group.startDate}
       </td>
       <td className="px-6 py-4">
-        <Link to={`/my-groups/update/${group._id}`}>
+        <Link to={`update/${group._id}`}>
           <button
             data-tooltip-id="my-tooltip"
             data-tooltip-content="Update"

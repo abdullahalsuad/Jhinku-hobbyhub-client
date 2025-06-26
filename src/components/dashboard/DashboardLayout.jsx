@@ -6,11 +6,12 @@ import {
   LayoutGrid,
   House,
   LogOut,
+  UserRoundPen,
 } from "lucide-react";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { AuthContext } from "../../context/AuthProvider";
 import { use } from "react";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { IoIosLogOut } from "react-icons/io";
 import FetchDataProvider from "../../context/FetchDataProvider";
 
@@ -31,7 +32,7 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-gray-50 ">
       {/* Sidebar */}
       <aside className="w-64 bg-gray-900 text-white p-6 flex flex-col">
         {/* Logo/Brand */}
@@ -55,7 +56,7 @@ const DashboardLayout = () => {
             <span>Dashboard</span>
           </Link>
           <Link
-            to="groups"
+            to="/groups"
             className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-colors"
           >
             <Users className="w-5 h-5 text-gray-300" />
@@ -77,6 +78,14 @@ const DashboardLayout = () => {
           >
             <PlusCircle className="w-5 h-5 text-gray-300" />
             <span>Create Group</span>
+          </Link>
+
+          <Link
+            to="profile"
+            className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-colors"
+          >
+            <UserRoundPen className="w-5 h-5 text-gray-300" />
+            <span>Profile</span>
           </Link>
         </nav>
 
@@ -118,9 +127,9 @@ const DashboardLayout = () => {
       </aside>
 
       {/* Main Content Area */}
-      <div className="flex-1 p-8 overflow-y-auto">
+      <div className="flex-1 h-screen overflow-y-auto flex flex-col pb-10">
         {/* header */}
-        <header className="flex justify-between items-center mb-8 pb-4 border-b border-gray-200">
+        <header className="sticky top-0 z-40 bg-white flex justify-between items-center mb-8 pb-4 border-b border-gray-200 p-6 rounded-md ">
           {" "}
           <h1 className="text-3xl font-bold text-gray-900">
             Welcome Back, {user.displayName}!
@@ -155,6 +164,20 @@ const DashboardLayout = () => {
           <Outlet />
         </FetchDataProvider>
       </div>
+
+      {/* toast */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

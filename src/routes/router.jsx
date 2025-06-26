@@ -15,6 +15,7 @@ import AboutPage from "../pages/AboutPage";
 import HobbyTipsDetails from "../components/homePage/HobbyTipsDetails";
 import DashboardLayout from "../components/dashboard/DashboardLayout";
 import Dashboard from "../components/dashboard/Dashboard";
+import ProfilePage from "../components/dashboard/ProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -48,30 +49,6 @@ const router = createBrowserRouter([
         path: "/about",
         element: <AboutPage />,
       },
-      {
-        path: "/create-group",
-        element: (
-          <PrivateRoute>
-            <CreateGroup />
-          </PrivateRoute>
-        ),
-      },
-      // {
-      //   path: "/my-groups",
-      //   element: (
-      //     <PrivateRoute>
-      //       <MyGroupsPage />
-      //     </PrivateRoute>
-      //   ),
-      // },
-      {
-        path: "my-groups/update/:id",
-        element: (
-          <PrivateRoute>
-            <UpdateGroupPage />
-          </PrivateRoute>
-        ),
-      },
 
       {
         path: "/login",
@@ -104,6 +81,14 @@ const router = createBrowserRouter([
       {
         path: "my-groups",
         element: <MyGroupsPage />,
+      },
+      {
+        path: "my-groups/update/:id",
+        element: <UpdateGroupPage />,
+      },
+      {
+        path: "profile",
+        element: <ProfilePage />,
       },
     ],
   },

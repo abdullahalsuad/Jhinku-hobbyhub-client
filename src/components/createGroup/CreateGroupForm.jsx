@@ -1,7 +1,7 @@
 const CreateGroupForm = ({ handleCreateHobbyGroup, displayName, email }) => {
   return (
     <>
-      <div className=" flex items-center justify-center">
+      <div className="flex items-center justify-center mt-5 ">
         <div className="bg-white  rounded-lg p-8 w-full max-w-3xl border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
             Create a New Hobby Group

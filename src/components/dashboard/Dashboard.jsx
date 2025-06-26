@@ -4,7 +4,7 @@ const Dashboard = () => {
   return (
     <>
       {/* --- KPI Cards --- */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10  px-10">
         {/* Example Metric Card 1 */}
         <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100 transition-transform hover:-translate-y-1">
           <div className="flex justify-between items-center mb-3">
