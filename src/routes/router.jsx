@@ -10,12 +10,13 @@ import GroupDetailsPage from "../pages/GroupDetailsPage";
 import PrivateRoute from "./PrivateRoute";
 import UpdateGroupPage from "../pages/UpdateGroupPage";
 import NotFoundPage from "../pages/NotFoundPage";
+import ContactPage from "../pages/ContactPage";
+import AboutPage from "../pages/AboutPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-
     errorElement: <NotFoundPage />,
 
     children: [
@@ -30,11 +31,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/groups/:id",
-        element: (
-          <PrivateRoute>
-            <GroupDetailsPage />
-          </PrivateRoute>
-        ),
+        element: <GroupDetailsPage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
+      },
+      {
+        path: "/about",
+        element: <AboutPage />,
       },
       {
         path: "/create-group",
@@ -67,10 +72,6 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <RegisterPage />,
-      },
-      {
-        path: "*",
-        element: <NotFoundPage />,
       },
     ],
   },

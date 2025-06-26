@@ -43,7 +43,7 @@ const Navbar = () => {
           </div>
 
           {/* Center section - Desktop Nav */}
-          <div className="hidden md:flex flex-1 justify-center space-x-8 p-4">
+          <div className="hidden md:flex flex-1 justify-center space-x-4 p-4">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -83,6 +83,26 @@ const Navbar = () => {
               }
             >
               My Groups
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#C68EFD] border-b-2 border-[#C68EFD] px-3 py-2 text-sm font-medium"
+                  : "text-gray-200 hover:text-[#C68EFD] px-3 py-2 text-sm font-medium transition"
+              }
+            >
+              About Us
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#C68EFD] border-b-2 border-[#C68EFD] px-3 py-2 text-sm font-medium"
+                  : "text-gray-200 hover:text-[#C68EFD] px-3 py-2 text-sm font-medium transition"
+              }
+            >
+              Contact Us
             </NavLink>
           </div>
 
@@ -229,6 +249,28 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               My Groups
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive
+                  ? "block text-[#C68EFD] border-l-4 border-[#C68EFD] pl-3 py-2 text-base font-medium"
+                  : "block text-gray-200 hover:bg-[#1f5490] pl-3 py-2 text-base font-medium"
+              }
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About Us
+            </NavLink>
+
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#C68EFD] border-b-2 border-[#C68EFD] px-3 py-2 text-sm font-medium"
+                  : "text-gray-200 hover:text-[#C68EFD] px-3 py-2 text-sm font-medium transition"
+              }
+            >
+              Contact Us
             </NavLink>
 
             {user ? (
