@@ -8,11 +8,11 @@ import "slick-carousel/slick/slick-theme.css";
 // Slide Component
 const Slide = ({ title, description, imageUrl }) => {
   return (
-    <section className="h-[600px] bg-gradient-to-r from-[#00224D] via-[#1f5490] to-[#00224D] text-white py-20 px-6 overflow-hidden">
+    <section className="h-[700px] bg-gradient-to-r from-[#00224D] via-[#1f5490] to-[#00224D] text-white lg:py-50 py-10 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         {/* Left Content */}
         <div className="md:w-1/2 text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+          <h1 className="lg:text-3xl text-2xl md:text-4xl font-bold mb-4 leading-tight">
             {title}
           </h1>
           <p className="text-gray-300 mb-10 max-w-lg mx-auto md:mx-0 text-xl">
@@ -106,7 +106,7 @@ const Banner = () => {
   ];
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden mt-15">
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <Slide key={index} {...slide} />
