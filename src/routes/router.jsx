@@ -16,6 +16,7 @@ import HobbyTipsDetails from "../components/homePage/HobbyTipsDetails";
 import DashboardLayout from "../components/dashboard/DashboardLayout";
 import Dashboard from "../components/dashboard/Dashboard";
 import ProfilePage from "../components/dashboard/ProfilePage";
+import Community from "../components/dashboard/Community";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Dashboard />,
+      },
+      {
+        path: "community",
+        element: <Community />,
       },
       {
         path: "create-group",
