@@ -130,19 +130,19 @@ const DashboardLayout = () => {
       <div className="flex-1 h-screen overflow-y-auto flex flex-col pb-10">
         {/* header */}
         <header className="sticky top-0 z-40 bg-white flex justify-between items-center mb-8 pb-4 border-b border-gray-200 p-6 rounded-md ">
-          {" "}
+         
           <h1 className="text-3xl font-bold text-gray-900">
             Welcome Back, {user.displayName}!
           </h1>
           <div className="flex items-center space-x-4">
-            {/* Notifications */}
+           
             <div className="relative">
               <Bell className="w-6 h-6 text-gray-500 cursor-pointer hover:text-gray-700 transition-colors" />
               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
                 3
               </span>
             </div>
-            {/* User Avatar in Header */}
+            
             <div className="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-md">
               {user.photoURL ? (
                 <img
