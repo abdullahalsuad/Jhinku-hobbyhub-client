@@ -1,99 +1,96 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App";
-import Home from "../pages/HomePage";
-import RegisterPage from "../pages/RegisterPage";
-import LoginPage from "../pages/LoginPage";
-import AllGroupsPage from "../pages/AllGroupsPage";
-import MyGroupsPage from "../pages/MyGroupsPage";
-import CreateGroup from "../pages/CreateGroup";
-import GroupDetailsPage from "../pages/GroupDetailsPage";
+import Home from "../pages/Home";
+import LoginPage from "../pages/login/LoginPage";
+import AllArticlesPage from "../pages/allArticles/AllArticlesPage";
+import PostArticlePage from "../pages/postArticle/PostArticlePage";
+import MyArticlesPage from "../pages/myArticles/MyArticlesPage";
+import AboutUsPage from "../pages/about/AboutUsPage";
+import RegisterPage from "../pages/register/RegisterPage";
+import ArticleDetails from "../pages/articleDetails/ArticleDetails";
+import NotFound from "../pages/NotFound";
 import PrivateRoute from "./PrivateRoute";
-import UpdateGroupPage from "../pages/UpdateGroupPage";
-import NotFoundPage from "../pages/NotFoundPage";
-import ContactPage from "../pages/ContactPage";
-import AboutPage from "../pages/AboutPage";
-import HobbyTipsDetails from "../components/homePage/HobbyTipsDetails";
-import DashboardLayout from "../components/dashboard/DashboardLayout";
-import Dashboard from "../components/dashboard/Dashboard";
-import ProfilePage from "../components/dashboard/ProfilePage";
-import Community from "../components/dashboard/Community";
+import AuthLayout from "../components/authentication/AuthLayout";
+import CategoriesArticlesPage from "../pages/categories-articles/CategoriesArticlesPage";
+import AuthPage from "../pages/AuthPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <NotFoundPage />,
+    errorElement: <NotFound />,
 
     children: [
       {
         index: true,
         element: <Home />,
       },
-
       {
-        path: "/groups",
-        element: <AllGroupsPage />,
+        path: "/all-articles",
+        element: <AllArticlesPage />,
       },
       {
-        path: "/groups/:id",
-        element: <GroupDetailsPage />,
+        path: "/category/:slug",
+        element: <CategoriesArticlesPage />,
       },
       {
-        path: "/contact",
-        element: <ContactPage />,
+        path: "/all-articles/:id",
+        element: (
+          <PrivateRoute>
+            <ArticleDetails />
+          </PrivateRoute>
+        ),
       },
       {
-        path: "/blogs/:id",
-        element: <HobbyTipsDetails />,
+        path: "/my-articles",
+        element: (
+          <PrivateRoute>
+            <MyArticlesPage />
+          </PrivateRoute>
+        ),
       },
       {
-        path: "/about",
-        element: <AboutPage />,
+        path: "/post-article",
+        element: (
+          <PrivateRoute>
+            <PostArticlePage />
+          </PrivateRoute>
+        ),
       },
-
       {
-        path: "/login",
-        element: <LoginPage />,
+        path: "/about-us",
+        element: <AboutUsPage />,
       },
-      {
-        path: "/signup",
-        element: <RegisterPage />,
-      },
+      // {
+      //   path: "/login",
+      //   element: (
+      //     <AuthLayout>
+      //       <LoginPage />
+      //     </AuthLayout>
+      //   ),
+      // },
+      // {
+      //   path: "/register",
+      //   element: (
+      //     <AuthLayout>
+      //       <RegisterPage />
+      //     </AuthLayout>
+      //   ),
+      // },
     ],
   },
 
   {
-    path: "/dashboard",
-    element: (
-      <PrivateRoute>
-        <DashboardLayout />
-      </PrivateRoute>
-    ),
-    errorElement: <NotFoundPage />,
+    path: "/authpage",
+    element: <AuthPage />,
     children: [
       {
         index: true,
-        element: <Dashboard />,
+        element: <LoginPage />,
       },
       {
-        path: "community",
-        element: <Community />,
-      },
-      {
-        path: "create-group",
-        element: <CreateGroup />,
-      },
-      {
-        path: "my-groups",
-        element: <MyGroupsPage />,
-      },
-      {
-        path: "my-groups/update/:id",
-        element: <UpdateGroupPage />,
-      },
-      {
-        path: "profile",
-        element: <ProfilePage />,
+        path: "/authpage/register",
+        element: <RegisterPage />,
       },
     ],
   },

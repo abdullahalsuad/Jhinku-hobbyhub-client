@@ -9,8 +9,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-
-import { auth } from "../firebase";
+import { auth } from "../firebase/firebase";
 
 // Creating a context
 export const AuthContext = createContext(null);
@@ -48,6 +47,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     let unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+
       setLoading(false);
     });
 
