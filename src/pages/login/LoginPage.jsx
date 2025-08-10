@@ -3,8 +3,8 @@ import { use, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthProvider";
+import LoginForm from "./LoginForm";
 // import LoginForm from "../../components/authentication/LoginForm";
-import LoginForm from "../../components/authentication/LoginForm.jsx";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
