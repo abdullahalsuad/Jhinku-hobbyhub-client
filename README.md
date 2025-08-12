@@ -1,123 +1,62 @@
-# 🧠 Brain Wave
+# 🎯 HobbyHub: A Local Hobby Group Organizer
 
-![Vite](https://img.shields.io/badge/Vite-6.3.1-blueviolet?style=for-the-badge&logo=vite)
-![React](https://img.shields.io/badge/React-19.x-blue?style=for-the-badge&logo=react)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1.4-teal?style=for-the-badge&logo=tailwindcss)
-![Firebase](https://img.shields.io/badge/Firebase-11.6.1-yellow?style=for-the-badge&logo=firebase)
-![ESLint](https://img.shields.io/badge/ESLint-9.22.0-purple?style=for-the-badge&logo=eslint)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.5.0-blue?style=for-the-badge&logo=typescript)
-![AOS](https://img.shields.io/badge/AOS-2.3.4-blue?style=for-the-badge)
-![Swiper.js](https://img.shields.io/badge/Swiper.js-11.2.8-orange?style=for-the-badge)
-![Toastify](https://img.shields.io/badge/React%20Toastify-11.0.5-teal?style=for-the-badge)
+![React](https://img.shields.io/badge/React-18.x-%2361DAFB?logo=react&logoColor=white) ![React Router](https://img.shields.io/badge/React_Router-v6-%23CA4245?logo=react&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-%2338B2AC?logo=tailwind-css&logoColor=white) ![Firebase Auth](https://img.shields.io/badge/Firebase_Auth-%23FFCA28?logo=firebase&logoColor=black) ![SweetAlert2](https://img.shields.io/badge/SweetAlert2-%23ED564E?logo=sweetalert&logoColor=white) ![React Simple Typewriter](https://img.shields.io/badge/React_Simple_Typewriter-%23F9A825?logo=typewriter&logoColor=white) ![React Awesome Reveal](https://img.shields.io/badge/React_Awesome_Reveal-%234CAF50?logo=react&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-18.x-%2343853D?logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/Express.js-%23404d59?logo=express&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%2347A248?logo=mongodb&logoColor=white) ![Vercel](https://img.shields.io/badge/Hosted_on-Vercel-%23000000?logo=vercel&logoColor=white)
+
+🔗 **Live Site:** [https://jhinku-hobbyhub.vercel.app/ ](https://jhinku-hobbyhub.vercel.app/)
+
+HobbyHub is a vibrant, responsive web application designed to connect people through shared hobbies and interests. Whether you're into painting, hiking, gaming, or reading — HobbyHub helps you find or create local groups that match your passion. It’s community-driven, simple to use, and built with scalability in mind.
 
 ---
 
-**Brain Wave** is a next-gen knowledge-sharing platform for students and tech enthusiasts. Publish articles, explore trending topics, connect with top contributors, and grow your academic network—all in a beautiful, fast, and responsive app.
+## 🌟 Key Features
+
+🔐 **User Authentication** – Email/password login with Google Auth support. Secure and seamless sign-up and login flow using Firebase.
+
+🏕️ **Join & Create Hobby Groups** – Easily create, manage, or join local hobby-based groups with custom fields like location, category, and start date.
+
+🛡️ **Protected Routes** – Private pages (like "My Groups" and "Create Group") are protected and accessible only to authenticated users.
+
+🎨 **Unique UI/UX** – A distinct design with responsive layouts for desktop, tablet, and mobile screens. Includes dark/light theme toggle.
+
+🧠 **Smart Group Management** – Prevents users from joining inactive/expired groups. Includes update/delete functionality with real-time feedback.
+
+🎥 **Modern Animations** – Uses Lottie animations, React Simple Typewriter, and React Awesome Reveal for engaging visuals.
 
 ---
 
-<p align="center">
-  <img src="demo.png" alt="Brain Wave Demo" width="600"/>
-</p>
+## 📄 Pages & Functionalities
 
-## 🚀 Main Features
+### Public Pages:
 
-| Feature                  | Description                                                         |
-| ------------------------ | ------------------------------------------------------------------- |
-| 📝 Article Publishing    | Create, edit, and manage your own articles with tags and categories |
-| 🔒 Secure Authentication | Email/password & Google OAuth login/register                        |
-| 🌗 Dark Mode             | Seamless light/dark theme toggle                                    |
-| 📊 Personal Dashboard    | Track your articles, likes, and comments                            |
-| 🔍 Explore & Search      | Browse featured articles, categories, and top contributors          |
-| 💬 Comments & Likes      | Engage with articles through comments and likes                     |
-| 📧 Newsletter            | Subscribe for updates                                               |
-| ⚡ Responsive UI         | Modern design with React, Tailwind CSS, and Vite                    |
+- **Home**: Hero banner slider, featured groups, and informative static sections.
+- **All Groups**: Browse and explore all available hobby groups.
+- **Login/Register**: Email/password login, Google login, with form validation and visual feedback.
+
+### Private Pages (Auth Required):
+
+- **Create Group**: Fill out a form with detailed group info and save to DB.
+- **My Groups**: View, update, and delete groups you've created.
+- **Group Details**: Full group info with a conditional “Join Group” button based on group start date.
+- **Update Group**: Update your group info via a page or optional modal.
 
 ---
 
-## 🛠 Tech Stack
+## 🛠️ Tech Stack
 
-| Category         | Technologies                                                                                                                                                                                                                                                             |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Frontend**     | ![React](https://img.shields.io/badge/React-19.x-blue?logo=react) ![Vite](https://img.shields.io/badge/Vite-6.3.1-blueviolet?logo=vite) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1.4-teal?logo=tailwindcss)                                         |
-| **Backend/Auth** | ![Firebase](https://img.shields.io/badge/Firebase-11.6.1-yellow?logo=firebase)                                                                                                                                                                                           |
-| **Routing**      | ![React Router](https://img.shields.io/badge/React%20Router-v7-orange?logo=react-router)                                                                                                                                                                                 |
-| **State**        | React Context API                                                                                                                                                                                                                                                        |
-| **UI/UX**        | ![Lucide React](https://img.shields.io/badge/Lucide%20React-0.514.0-purple) ![React Icons](https://img.shields.io/badge/React%20Icons-5.5.0-pink) ![AOS](https://img.shields.io/badge/AOS-2.3.4-blue) ![Swiper.js](https://img.shields.io/badge/Swiper.js-11.2.8-orange) |
-| **Utils**        | ![Toastify](https://img.shields.io/badge/React%20Toastify-11.0.5-teal)                                                                                                                                                                                                   |
-| **Dev Tools**    | ![ESLint](https://img.shields.io/badge/ESLint-9.22.0-purple?logo=eslint) ![TypeScript](https://img.shields.io/badge/TypeScript-5.5.0-blue?logo=typescript)                                                                                                               |
+| Category     | Technologies Used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Frontend** | ![React](https://img.shields.io/badge/React-18.x-%2361DAFB?logo=react) ![React Router](https://img.shields.io/badge/React_Router-v6-%23CA4245?logo=react) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-%2338B2AC?logo=tailwind-css) ![Firebase Auth](https://img.shields.io/badge/Firebase_Auth-%23FFCA28?logo=firebase) ![SweetAlert2](https://img.shields.io/badge/SweetAlert2-%23ED564E?logo=sweetalert) ![Typewriter](https://img.shields.io/badge/React_Simple_Typewriter-%23F9A825?logo=typewriter) ![React Awesome Reveal](https://img.shields.io/badge/React_Awesome_Reveal-%234CAF50) |
+| **Backend**  | ![Node.js](https://img.shields.io/badge/Node.js-18.x-%2343853D?logo=node.js) ![Express.js](https://img.shields.io/badge/Express.js-%23404d59?logo=express) ![MongoDB](https://img.shields.io/badge/MongoDB-%2347A248?logo=mongodb) ![Vercel](https://img.shields.io/badge/Vercel-%23000000?logo=vercel)                                                                                                                                                                                                                                                                                                           |
+| **Hosting**  | ![Vercel](https://img.shields.io/badge/Hosted_on-Vercel-%23000000?logo=vercel)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
----
+## ✅ Project Highlights
 
-## 📦 Key Dependencies
+- 💾 15+ Client Commits & 8+ Server Commits
+- 📱 Fully Responsive across all devices
+- 🚫 No Lorem Ipsum or Default Alerts Used
+- 🧪 Toast-based feedback for all auth and group actions
+- 🔐 Auth-protected routing without redirect on reload
 
-- **react**
-- **react-router**
-- **tailwindcss**
-- **firebase**
-- **aos**
-- **swiper**
-- **react-toastify**
-- **lucide-react**
-- **eslint**
-- **typescript**
+![demo](demo.png)
 
-See [`package.json`](./package.json) for the full list.
-
----
-
-## ▶️ Getting Started
-
-1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/your-username/brainwave-client.git
-   cd BrainWave-Client
-   ```
-
-2. **Install dependencies:**
-   ```sh
-   npm install
-   ```
-
-3. **Set up environment variables:**
-   - Copy `.env.example` to `.env.local` and fill in your Firebase and API keys.
-
-4. **Run the development server:**
-   ```sh
-   npm run dev
-   ```
-
-5. **Open in browser:**
-   - Visit [http://localhost:5173](http://localhost:5173)
-
----
-
-## 📂 Project Structure
-
-```
-src/
-  components/        # Reusable UI components
-  context/           # React Context providers
-  firebase/          # Firebase config
-  hooks/             # Custom hooks
-  pages/             # Main pages (Home, About, Auth, etc.)
-  routes/            # App routing
-  utils/             # Utilities (date formatting, etc.)
-  App.jsx
-  main.jsx
-public/
-index.html
-vite.config.js
-package.json
-```
-
----
-
-## 🌐 Live Demo
-
-- [Live Site](https://your-live-site-url.vercel.app)
-- [Frontend Repository](https://github.com/your-username/brainwave-client)
-
----
-
-> **Brain Wave** — Empowering students through collaborative knowledge
+![flow](flow.png)
